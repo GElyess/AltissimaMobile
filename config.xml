@@ -5,14 +5,16 @@
         id        = "com.moodle.moodlemobile"
         versionCode = "20170"
         version   = "3.2.1">
-    <name>Moodle Mobile</name>
+
+        <!-- Name here -->
+    <name>Altissima Mobile</name> 
 
     <description>
-        Moodle Mobile official app
+        Altissima Mobile official app
     </description>
 
-    <author href="http://moodle.com" email="mobile@moodle.com">
-        Moodle Pty Ltd
+    <author href="http://Altissima.com" email="mobile@Altissima.com">
+        Altissima Monaco
     </author>
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
@@ -92,6 +94,7 @@
     <gap:splash src="resources/android/splash/drawable-land-xhdpi-screen.png"     gap:platform="android" gap:qualifier="land-xhdpi"/>
     <gap:splash src="resources/android/splash/drawable-land-xxhdpi-screen.png"    gap:platform="android" gap:qualifier="land-xxhdpi"/>
     <gap:splash src="resources/android/splash/drawable-land-xxxhdpi-screen.png"   gap:platform="android" gap:qualifier="land-xxxhdpi"/>
+    
     <gap:splash src="resources/android/splash/drawable-port-ldpi-screen.png"      gap:platform="android" gap:qualifier="port-ldpi"/>
     <gap:splash src="resources/android/splash/drawable-port-mdpi-screen.png"      gap:platform="android" gap:qualifier="port-mdpi"/>
     <gap:splash src="resources/android/splash/drawable-port-hdpi-screen.png"      gap:platform="android" gap:qualifier="port-hdpi"/>
