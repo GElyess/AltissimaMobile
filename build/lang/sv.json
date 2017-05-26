@@ -561,7 +561,7 @@
     "mm.question.requiresgrading": "Kräver rättning",
     "mm.question.unknown": "Okänd",
     "mm.settings.about": "Om",
-    "mm.settings.appname": "Moodle Mobile {{version}}",
+    "mm.settings.appname": "Altissima Mobile {{version}}",
     "mm.settings.appready": "Appen är redo",
     "mm.settings.cacheexpirationtime": "Cache utgångs tid (millisekunder)",
     "mm.settings.cordovadevicemodel": "",

@@ -1,3 +1,4 @@
+
 {
     "mm.core.allparticipants": "Tutti i partecipanti",
     "mm.core.android": "Android",
@@ -521,7 +522,7 @@
     "mm.login.invalidmoodleversion": "Versione di Moodle non valida. La versione minima richiesta:",
     "mm.login.invalidsite": "L'URL del sito non è valida",
     "mm.login.invalidurl": "L'URL non è valido",
-    "mm.login.localmobileunexpectedresponse": "Il controllo delle Moodle Mobile Additional Feature ha restituito una risposta inattesa, sarai autenticato tramite i servizi Mobile standard.",
+    "mm.login.localmobileunexpectedresponse": "Il controllo delle Altissima Mobile Additional Feature ha restituito una risposta inattesa, sarai autenticato tramite i servizi Mobile standard.",
     "mm.login.login": "Login",
     "mm.login.loginbutton": "Login!",
     "mm.login.logininsiterequired": "Devi autenticarti usando una finestra browser",
@@ -570,7 +571,7 @@
     "mm.question.requiresgrading": "Richiede valutazione",
     "mm.question.unknown": "Non è possibile determinare lo stato",
     "mm.settings.about": "Informazioni",
-    "mm.settings.appname": "Moodle Mobile {{version}}",
+    "mm.settings.appname": "Altissima Mobile {{version}}",
     "mm.settings.appready": "App ready",
     "mm.settings.cacheexpirationtime": "Durata cache (millisecondi)",
     "mm.settings.cordovadevicemodel": "Modello del dispositivo Cordova",
