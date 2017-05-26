@@ -61,10 +61,10 @@
     <preference name="iosPersistentFileLocation"        value="Compatibility" />
 <!-- Incone -->
     <icon src="icon.png" />
-    <icon src="resources/android/icon/icon-36-ldpi.png"       gap:platform="android"    gap:density="ldpi" />
+<!--     <icon src="resources/android/icon/icon-36-ldpi.png"       gap:platform="android"    gap:density="ldpi" />
     <icon src="resources/android/icon/icon-48-mdpi.png"       gap:platform="android"    gap:density="mdpi" />
     <icon src="resources/android/icon/icon-72-hdpi.png"       gap:platform="android"    gap:density="hdpi" />
-    <icon src="resources/android/icon/icon-96-xhdpi.png"      gap:platform="android"    gap:density="xhdpi" />
+    <icon src="resources/android/icon/icon-96-xhdpi.png"      gap:platform="android"    gap:density="xhdpi" /> -->
     <icon src="resources/android/icon/icon-144-xxhdpi.png"    gap:platform="android"    gap:density="xxhdpi" />
 
     <icon src="resources/ios/icon/icon-small.png"         gap:platform="ios"      width="29" height="29" />
