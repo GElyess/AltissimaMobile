@@ -15490,7 +15490,7 @@ angular.module('mm.core.courses')
             mmCoursesEnrolInvalidKey, $mmContentLinkHandlerFactory) {
     var self = {};
         self.coursesLinksHandler = $mmContentLinkHandlerFactory.createChild(
-                /\/catalogue\/?(index\.php.*)?$/, '$mmSideMenuDelegate_mmCourses');
+                /\/course\/?(index\.php.*)?$/, '$mmSideMenuDelegate_mmCourses');
     self.coursesLinksHandler.getActions = function(siteIds, url, params, courseId) {
         return [{
             action: function(siteId) {
@@ -15504,7 +15504,7 @@ angular.module('mm.core.courses')
                         state = 'site.mm_availablecourses';
                     }
                 }
-                $state.go('redirect', { 
+                $state.go('redirect', {
                     siteid: siteId || $mmSite.getId(),
                     state: state,
                     params: stateParams
@@ -15512,7 +15512,7 @@ angular.module('mm.core.courses')
             }
         }];
     };
-    self.courseLinksHandler = $mmContentLinkHandlerFactory.createChild(
+        self.courseLinksHandler = $mmContentLinkHandlerFactory.createChild(
                 /((\/enrol\/index\.php)|(\/course\/enrol\.php)|(\/course\/view\.php)).*([\?\&]id=\d+)/);
     self.courseLinksHandler.isEnabled = function(siteId, url, params, courseId) {
         courseId = parseInt(params.id, 10);
