@@ -15,7 +15,7 @@
             <div ng-if="categories.length > 0">
                 <p class="item item-divider">{{ 'mm.courses.categories' | translate }}</p>
                 <section ng-repeat="category in categories">
-                    <a class="item item-icon-left item-text-wrap item-icon-right" ui-sref="site.mm_coursescategories(42)" title="{{category.name}}">
+                    <a class="item item-icon-left item-text-wrap item-icon-right" ui-sref="site.mm_coursescategories({categoryid: category.id})" title="{{category.name}}">
                         <i class="icon ion-folder"></i>
                         <h2><mm-format-text watch="true">{{category.name}}</mm-format-text></h2>
                         <span ng-if="category.coursecount > 0" class="badge badge-light">{{category.coursecount}}</span>
