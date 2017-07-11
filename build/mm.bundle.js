@@ -12,6 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+function httpGet(theUrl)
+{
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            return xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET", theUrl, false );
+    xmlhttp.send();    
+}
+
 angular.module('mm', ['ionic', 'mm.core', 'mm.core.comments', 'mm.core.contentlinks', 'mm.core.course', 'mm.core.courses', 'mm.core.fileuploader', 'mm.core.grades', 'mm.core.login', 'mm.core.question', 'mm.core.settings', 'mm.core.sharedfiles', 'mm.core.sidemenu', 'mm.core.textviewer', 'mm.core.user', 'mm.addons.badges', 'mm.addons.calendar', 'mm.addons.competency', 'mm.addons.coursecompletion', 'mm.addons.files', 'mm.addons.frontpage', 'mm.addons.grades', 'mm.addons.messageoutput', 'mm.addons.messages', 'mm.addons.notes', 'mm.addons.notifications', 'mm.addons.participants', 'mm.addons.pushnotifications', 'mm.addons.remotestyles', 'mm.addons.messageoutput_airnotifier', 'mm.addons.mod_book', 'mm.addons.mod_assign', 'mm.addons.mod_chat', 'mm.addons.mod_choice', 'mm.addons.mod_folder', 'mm.addons.mod_forum', 'mm.addons.mod_glossary', 'mm.addons.mod_imscp', 'mm.addons.mod_label', 'mm.addons.mod_lti', 'mm.addons.mod_page', 'mm.addons.mod_quiz', 'mm.addons.mod_resource', 'mm.addons.mod_scorm', 'mm.addons.mod_survey', 'mm.addons.mod_url', 'mm.addons.mod_wiki', 'mm.addons.qbehaviour_adaptive', 'mm.addons.qbehaviour_adaptivenopenalty', 'mm.addons.qbehaviour_deferredfeedback', 'mm.addons.qbehaviour_deferredcbm', 'mm.addons.qbehaviour_immediatecbm', 'mm.addons.qbehaviour_immediatefeedback', 'mm.addons.qbehaviour_informationitem', 'mm.addons.qbehaviour_interactive', 'mm.addons.qbehaviour_interactivecountback', 'mm.addons.qbehaviour_manualgraded', 'mm.addons.qtype_calculated', 'mm.addons.qtype_calculatedsimple', 'mm.addons.qtype_calculatedmulti', 'mm.addons.qtype_ddimageortext', 'mm.addons.qtype_ddmarker', 'mm.addons.qtype_ddwtos', 'mm.addons.qtype_description', 'mm.addons.qtype_essay', 'mm.addons.qtype_gapselect', 'mm.addons.qtype_match', 'mm.addons.qtype_multianswer', 'mm.addons.qtype_numerical', 'mm.addons.qtype_multichoice', 'mm.addons.qtype_randomsamatch', 'mm.addons.qtype_shortanswer', 'mm.addons.qtype_truefalse', 'mm.addons.userprofilefield_checkbox', 'mm.addons.userprofilefield_datetime', 'mm.addons.userprofilefield_menu', 'mm.addons.userprofilefield_text', 'mm.addons.userprofilefield_textarea', 'ngCordova', 'angular-md5', 'pascalprecht.translate', 'ngAria', 'oc.lazyLoad', 'ckeditor',
             'ngMessages'])
 .run(["$ionicPlatform", function($ionicPlatform) {
@@ -10682,7 +10703,19 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
 })
 .config(["$stateProvider", function($stateProvider) {
     $stateProvider
-    .state('site.mm_courses', {
+    .state("site.weshalors",
+    {
+        url: "/weshalors",
+        views:
+        {
+            "site":
+            {
+                templateUrl: "core/components/courses/templates/weshalors.html", 
+                controller: "mmWeshAlorsCtrl"
+            }
+        }
+    })
+    .state('site.mm_courses', { //sale hmar
         url: '/mm_courses',
         views: {
             'site': {
@@ -10721,6 +10754,18 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
             'site': {
                 templateUrl: 'core/components/courses/templates/coursecategories.html',
                 controller: 'mmCourseCategoriesCtrl'
+            }
+        }
+    })
+    .state('site.catalogue', {
+        url: '/catalogue',
+        params: {
+            catalogueid: null
+        },
+        views: {
+            'site': {
+                templateUrl: 'core/components/courses/templates/catalogue.html',
+                controller: 'catalogueCtrl'
             }
         }
     })
@@ -14556,14 +14601,19 @@ angular.module('mm.core.courses')
     };
 }]);
 
-angular.module('mm.core.courses')
-.controller('mmCourseCategoriesCtrl', ["$scope", "$stateParams", "$mmCourses", "$mmUtil", "$q", "$mmSite", function($scope, $stateParams, $mmCourses, $mmUtil, $q, $mmSite) {
+angular.module('mm.core.courses').controller('mmCourseCategoriesCtrl', ["$scope", "$stateParams", "$mmCourses", "$mmUtil", "$q", "$mmSite", function($scope, $stateParams, $mmCourses, $mmUtil, $q, $mmSite) {
     var categoryId = $stateParams.categoryid || 0;
+    // console.log("LE=" + categoryId);
     function fetchCategories() {
+        // console.log("LE=" + lolz);
+        // var test = $mmCourses.getCategories(categoryId, true);
+        // var mdr =    JSON.stringify(test);
+        // console.log("TES=" + mdr);
         return $mmCourses.getCategories(categoryId, true).then(function(cats) {
             $scope.currentCategory = false;
             angular.forEach(cats, function(cat, index) {
                 if (cat.id == categoryId) {
+                    console.log();
                     $scope.currentCategory = cat;
                     delete cats[index];
                 }
@@ -14605,41 +14655,153 @@ angular.module('mm.core.courses')
 }]);
 
 angular.module('mm.core.courses')
-.controller('mmCoursesListCtrl', ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q,
-            mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated) {
-    var updateSiteObserver,
-        myCoursesObserver;
+.controller('mmCourseCategoriesCtrl', ["$scope", "$stateParams", "$mmCourses", "$mmUtil", "$q", "$mmSite", function($scope, $stateParams, $mmCourses, $mmUtil, $q, $mmSite) {
+    var categoryId = $stateParams.categoryid || 0;
+    // console.log("LE=" + categoryId);
+    function fetchCategories() {
+        // console.log("LE=" + lolz);
+        // var test = $mmCourses.getCategories(categoryId, true);
+        // var mdr =    JSON.stringify(test);
+        // console.log("TES=" + mdr);
+        return $mmCourses.getCategories(categoryId, true).then(function(cats) {
+            $scope.currentCategory = false;
+            angular.forEach(cats, function(cat, index) {
+                if (cat.id == categoryId) {
+                    console.log();
+                    $scope.currentCategory = cat;
+                    delete cats[index];
+                }
+            });
+            cats.sort(function(a,b) {
+                if (a.depth == b.depth) {
+                    return (a.sortorder > b.sortorder) ? 1 : ((b.sortorder > a.sortorder) ? -1 : 0);
+                }
+                return a.depth > b.depth ? 1 : -1;
+            });
+            $scope.categories = $mmUtil.formatTree(cats, 'parent', 'id', categoryId);
+            if ($scope.currentCategory) {
+                $scope.title = $scope.currentCategory.name;
+                return $mmCourses.getCoursesByField('category', categoryId).then(function(courses) {
+                    $scope.courses = courses;
+                }, function(error) {
+                    $mmUtil.showErrorModalDefault(error, 'mm.courses.errorloadcourses', true);
+                });
+            }
+        }, function(error) {
+            $mmUtil.showErrorModalDefault(error, 'mm.courses.errorloadcategories', true);
+        });
+    }
+    fetchCategories().finally(function() {
+        $scope.categoriesLoaded = true;
+    });
+    $scope.refreshCategories = function()
+    {
+        var promises = [];
+        promises.push($mmCourses.invalidateUserCourses());
+        promises.push($mmCourses.invalidateCategories(categoryId, true));
+        promises.push($mmCourses.invalidateCoursesByField('category', categoryId));
+        promises.push($mmSite.invalidateConfig());
+        $q.all(promises).finally(function()
+        {
+            fetchCategories(true).finally(function()
+            {
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+        });
+    };
+}]);
+
+
+
+// That moment when you're tired af and you don't know what to do anymore so you just sit in front of your computer looking at the code, typing shit and hoping for a miracle to happen.
+
+angular.module("mm.core.courses")
+.controller("mmWeshAlorsCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
+    function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
+{
+
+    // ya lioubliou kartoshki :D ! ti toji lioubish kartoshki ? daaaa ya otchen lioubliou kartoshki :3 ! khotchesh kartoshki :D ? khatchou khatchou :D !
+
+    $scope.wesh = "THE COCONUT NUT IS A GIANT NUT ! IF YOU EAT TOO MUCH YOU GET VERY FAT !";
+
+    var ajax = new XMLHttpRequest();
+    ajax.onreadystatechange = function()
+    {
+        if (ajax.readyState == 4)
+            alert("ah : \\" + ajax.responseText + "/");
+    };
+    ajax.open("GET", "http://go.altissimalearning.net/test_db_simpleA35MM15.php", true);
+    ajax.send();
+
+    $http.get("http://go.altissimalearning.net/test_db_simpleA35MM15.php").success(function(data, status)
+    {
+        $scope.untruc = data;
+        $scope.autretruc = status;
+    }).error(function(data, status)
+    {
+        $scope.untruc = "error -.- : " + data;
+        $scope.autretruc = "error -.- : " + status;
+    });
+
+}]);
+
+
+angular.module('mm.core.courses')
+.controller('mmCoursesListCtrl', ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated)
+{
+    var updateSiteObserver, myCoursesObserver;
+
     $scope.searchEnabled = $mmCourses.isSearchCoursesAvailable() && !$mmCourses.isSearchCoursesDisabledInSite();
     $scope.areNavHandlersLoadedFor = $mmCoursesDelegate.areNavHandlersLoadedFor;
     $scope.filter = {};
-    function fetchCourses(refresh) {
-        return $mmCourses.getUserCourses().then(function(courses) {
+    function fetchCourses(refresh)
+    {
+        // Trois nuits par semaine c'est sa peau contre ma peau et je dors avec elle, trois nuits par semaine mon dieu qu'elle est belle.
+
+// Toi, plus moi, plus tous ceux qui le veulent, plus lui, plus elle, plus tous ceux qui sont seulent, allez, venez, et entrez dans la danse, allez, venez, c'est notre jour de chance.
+
+        return $mmCourses.getUserCourses().then(function(courses)
+        {
             $scope.courses = courses;
             $scope.filter.filterText = '';
             return loadCoursesNavHandlers(refresh);
-        }, function(error) {
-            if (typeof error != 'undefined' && error !== '') {
+        },
+        function(error)
+        {
+            if (typeof error != 'undefined' && error !== '')
+            {
                 $mmUtil.showErrorModal(error);
-            } else {
+            }
+            else
+            {
                 $mmUtil.showErrorModal('mm.courses.errorloadcourses', true);
             }
         });
     }
-    function loadCoursesNavHandlers(refresh) {
-        var courseIds = $scope.courses.map(function(course) {
+    function loadCoursesNavHandlers(refresh)
+    {
+        var courseIds = $scope.courses.map(function(course)
+        {
             return course.id;
         });
-        return $mmCourses.getCoursesOptions(courseIds).then(function(options) {
-            angular.forEach($scope.courses, function(course) {
+        return $mmCourses.getCoursesOptions(courseIds).then(function(options)
+        {
+            angular.forEach($scope.courses, function(course)
+            {
                 course._handlers = $mmCoursesDelegate.getNavHandlersFor(
                             course.id, refresh, options.navOptions[course.id], options.admOptions[course.id]);
             });
         });
     }
-    fetchCourses().finally(function() {
+    fetchCourses().finally(function()
+    {
         $scope.coursesLoaded = true;
     });
-    $scope.refreshCourses = function() {
+
+    // miaou miaou je suis un chat :3
+
+    $scope.refreshCourses = function()
+    {
         var promises = [];
         $mmEvents.trigger(mmCoursesEventMyCoursesRefreshed);
         promises.push($mmCourses.invalidateUserCourses());
@@ -14708,7 +14870,8 @@ angular.module('mm.core.courses')
 angular.module('mm.core.courses')
 .controller('mmCoursesViewResultCtrl', ["$scope", "$stateParams", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$translate", "$q", "$ionicModal", "$mmEvents", "$mmSite", "mmCoursesSearchComponent", "mmCoursesEnrolInvalidKey", "mmCoursesEventMyCoursesUpdated", "$timeout", function($scope, $stateParams, $mmCourses, $mmCoursesDelegate, $mmUtil, $translate, $q,
             $ionicModal, $mmEvents, $mmSite, mmCoursesSearchComponent, mmCoursesEnrolInvalidKey, mmCoursesEventMyCoursesUpdated,
-            $timeout) {
+            $timeout)
+{
     var course = angular.copy($stateParams.course || {}),
         selfEnrolWSAvailable = $mmCourses.isSelfEnrolmentEnabled(),
         guestWSAvailable = $mmCourses.isGuestWSAvailable(),
@@ -14723,55 +14886,78 @@ angular.module('mm.core.courses')
     $scope.enroldata = {
         password: ''
     };
-    $scope.loadingHandlers = function() {
+    $scope.loadingHandlers = function()
+    {
         return $scope.handlersShouldBeShown && !$mmCoursesDelegate.areNavHandlersLoadedFor(course.id);
     };
-    function getCourse(refresh) {
+    function getCourse(refresh)
+    {
         var promise;
-        if (selfEnrolWSAvailable || guestWSAvailable) {
+        if (selfEnrolWSAvailable || guestWSAvailable)
+        {
             $scope.selfEnrolInstances = [];
-            promise = $mmCourses.getCourseEnrolmentMethods(course.id).then(function(methods) {
+            promise = $mmCourses.getCourseEnrolmentMethods(course.id).then(function(methods)
+            {
                 enrollmentMethods = methods;
-                angular.forEach(enrollmentMethods, function(method) {
-                    if (selfEnrolWSAvailable && method.type === 'self') {
+                angular.forEach(enrollmentMethods, function(method)
+                {
+                    if (selfEnrolWSAvailable && method.type === 'self')
+                    {
                         $scope.selfEnrolInstances.push(method);
-                    } else if (guestWSAvailable && method.type === 'guest') {
+                    }
+                    else if (guestWSAvailable && method.type === 'guest')
+                    {
                         isGuestEnabled = true;
                     }
                 });
-            }).catch(function(error) {
-                if (error) {
+            }).catch(function(error)
+            {
+                if (error)
+                {
                     $mmUtil.showErrorModal(error);
                 }
             });
-        } else {
+        }
+        else
+        {
             promise = $q.when();
         }
-        return promise.then(function() {
-            return $mmCourses.getUserCourse(course.id).then(function(c) {
+        return promise.then(function()
+        {
+            return $mmCourses.getUserCourse(course.id).then(function(c)
+            {
                 $scope.isEnrolled = true;
                 return c;
-            }).catch(function() {
+            }).catch(function()
+            {
                 $scope.isEnrolled = false;
                 return $mmCourses.getCourse(course.id);
-            }).then(function(c) {
+            }).then(function(c)
+            {
                 course.fullname = c.fullname || course.fullname;
                 course.summary = c.summary || course.summary;
                 return loadCourseNavHandlers(refresh, false);
-            }).catch(function() {
-                return canAccessAsGuest().then(function(passwordRequired) {
-                    if (!passwordRequired) {
+            }).catch(function()
+            {
+                return canAccessAsGuest().then(function(passwordRequired)
+                {
+                    if (!passwordRequired)
+                    {
                         return loadCourseNavHandlers(refresh, true);
-                    } else {
+                    }
+                    else
+                    {
                         course._handlers = [];
                         $scope.handlersShouldBeShown = false;
                     }
-                }).catch(function() {
+                }).catch(function()
+                {
                     course._handlers = [];
                     $scope.handlersShouldBeShown = false;
                 });
             });
-        }).finally(function() {
+        }).finally(function()
+        {
             $scope.courseLoaded = true;
         });
     }
@@ -14948,7 +15134,8 @@ angular.module('mm.core.courses')
 }]);
 
 angular.module('mm.core.courses')
-.factory('$mmCourses', ["$q", "$mmSite", "$log", "$mmSitesManager", "mmCoursesSearchPerPage", "mmCoursesEnrolInvalidKey", function($q, $mmSite, $log, $mmSitesManager, mmCoursesSearchPerPage, mmCoursesEnrolInvalidKey) {
+.factory('$mmCourses', ["$q", "$mmSite", "$log", "$mmSitesManager", "mmCoursesSearchPerPage", "mmCoursesEnrolInvalidKey", function($q, $mmSite, $log, $mmSitesManager, mmCoursesSearchPerPage, mmCoursesEnrolInvalidKey)
+{
     $log = $log.getInstance('$mmCourses');
     var self = {},
         currentCourses = {};

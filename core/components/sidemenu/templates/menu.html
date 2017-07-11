@@ -29,6 +29,16 @@
         <ion-content class="has-side-menu-header mm-sidemenu-menu">
             <nav>
                 <ul class="list dark">
+                    <li class="mm-mycourses-handler">
+                        <a menu-close class="item item-icon-left" ui-sref="site.weshalors" title="Wesh alors">
+                            <i class="icon ion-ionic"></i>Wesh alors
+                        </a>
+                    </li>
+                    <!-- <li ng-if="showMyCourses" class="mm-mycourses-handler">
+                        <a menu-close class="item item-icon-left" ui-sref="site.catalogue" title="some title here">
+                            <i class="icon ion-ionic"></i>Menu name
+                        </a>
+                    </li>-->
                     <li ng-if="showMyCourses" class="mm-mycourses-handler">
                         <a menu-close class="item item-icon-left" ui-sref="site.mm_courses" title="{{ 'mm.sidemenu.mycourses' | translate}}">
                             <i class="icon ion-ionic"></i>{{ 'mm.sidemenu.mycourses' | translate}}
@@ -40,7 +50,7 @@
                         </a>
                     </li>
                     <li class="item text-center" ng-if="(!handlers || !handlers.length) && !areNavHandlersLoaded()">
-                        <ion-spinner></ion-spinner>
+                        <ion-spinner>   </ion-spinner>
                     </li>
                     <li ng-repeat="handler in handlers | orderBy:'-priority'" ng-controller="handler.controller" class="mm-sidemenu-handler {{class}}">
                         <a menu-close class="item item-icon-left" ui-sref="{{state}}" title="{{title | translate}}" ng-class="{'item-icon-right': loading}">
@@ -51,7 +61,7 @@
                     </li>
                     <li ng-repeat="item in customItems" class="mm-sidemenu-customitem">
                         <a ng-if="item.type != 'embedded'" menu-close class="item item-icon-left" ng-href="{{item.url}}" mm-link in-app="{{item.type == 'inappbrowser'}}" title="{{item.label}}">
-                            <i class="icon {{item.icon}}"></i>{{item.label}}
+                            <!-- <i class="icon {{item.icon}}"></i>{{item.label}} -->
                         </a>
                         <a ng-if="item.type == 'embedded'" menu-close class="item item-icon-left" ui-sref="site.iframe-view({title: item.label, url: item.url})" title="{{item.label}}">
                             <i class="icon {{item.icon}}"></i>{{item.label}}
