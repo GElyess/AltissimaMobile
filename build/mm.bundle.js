@@ -14724,15 +14724,6 @@ angular.module("mm.core.courses")
 
     $scope.wesh = "THE COCONUT NUT IS A GIANT NUT ! IF YOU EAT TOO MUCH YOU GET VERY FAT !";
 
-    var ajax = new XMLHttpRequest();
-    ajax.onreadystatechange = function()
-    {
-        if (ajax.readyState == 4)
-            alert("ah : \\" + ajax.responseText + "/");
-    };
-    ajax.open("GET", "http://go.altissimalearning.net/test_db_simpleA35MM15.php", true);
-    ajax.send();
-
     $http.get("http://go.altissimalearning.net/test_db_simpleA35MM15.php").success(function(data, status)
     {
         $scope.untruc = data;
