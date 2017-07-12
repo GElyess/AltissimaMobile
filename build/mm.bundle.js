@@ -14729,6 +14729,7 @@ angular.module("mm.core.courses")
 
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
+        alert(data);
 
         while (i < data.length)
         {
@@ -14754,6 +14755,7 @@ angular.module("mm.core.courses")
                 }
                 i++;
             }
+            alert(i + " " + str);
             sous_tab["id"] = str;
             str = "";
 
@@ -14784,6 +14786,7 @@ angular.module("mm.core.courses")
                 i++;
             }
             sous_tab["name"] = str;
+            alert(i + " " + str);
 
             tab.push(sous_tab);
         }
