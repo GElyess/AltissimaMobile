@@ -14724,14 +14724,33 @@ angular.module("mm.core.courses")
 
     $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
     {
-        alert("ah");
-        alert(data);
+        var tab = array();
+        var i = 0;
+        var acc = 0;
+
         data = JSON.stringify(data);
-        alert(data);
         data = data.substr(1, data.length - 2);
-        alert(data);
-        data = data.split(",");
-        $scope.catalogue = data;
+
+        while (i <= data.length)
+        {
+            var str = "";
+            while (data.at(i) != ':')
+            {
+                if (data.at(i) != '{' && data.at(i) != '"')
+                    str += data.at(i);
+                i++;
+            }
+            str += "&&&";
+            while (data.at(i) != '{' && i <= data.length)
+            {
+                if (data.at(i) != '}' && data.at(i) != '"')
+                    str += data.at(i);
+                i++;
+            }
+            tab.push(str);
+        }
+
+        $scope.catalogue = tab;
     }).error(function(data, status)
     {
         $scope.catalogue = "error : " + data + ", " + status;
