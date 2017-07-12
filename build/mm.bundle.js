@@ -14810,6 +14810,7 @@ angular.module("mm.core.courses")
     {
         cat_id.push(tab[i][0]);
         cat_name.push(tab[i][1]);
+        alert(tab[i][1]);
         i++;
     }
 
