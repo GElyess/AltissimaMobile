@@ -14801,7 +14801,7 @@ angular.module("mm.core.courses")
     {
         $scope.catalogue = "error : " + data + ", " + status;
     });
-/*
+
     var cat_id = [];
     var cat_name = [];
     var i = 0;
@@ -14815,7 +14815,7 @@ angular.module("mm.core.courses")
 
     $scope.catalogue_id = cat_id;
     $scope.catalogue_name = cat_name;
-*/
+
 }]);
 
 
