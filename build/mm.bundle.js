@@ -14737,23 +14737,22 @@ angular.module("mm.core.courses")
             var str = "";
             while (true && i < data.length)
             {
-                alert(i);
                 if (data.charAt(i) == 'i')
                 {
-                    alert("ah" + i);
                     if (i + 1 < data.length && data.charAt(i + 1) == 'd')
                     {
-                        alert("oh" + i);
-                        if (i + 2 < data.length && data.charAt(i + 2) == ':')
+                        if (i + 2 < data.length && data.charAt(i + 2) == '"')
                         {
-                            i += 4;
-                            alert("uh" + i);
-                            while (i < data.length && data.charAt(i) != '"')
+                            if (i + 3 < data.length && data.charAt(i + 3) == ':')
                             {
-                                str += data.charAt(i);
-                                i++;
+                                i += 5;
+                                while (i < data.length && data.charAt(i) != '"')
+                                {
+                                    str += data.charAt(i);
+                                    i++;
+                                }
+                                break;
                             }
-                            break;
                         }
                     }
                 }
@@ -14773,15 +14772,18 @@ angular.module("mm.core.courses")
                         {
                             if (i + 3 < data.length && data.charAt(i + 3) == 'e')
                             {
-                                if (i + 4 < data.length && data.charAt(i + 4) == ':')
+                                if (i + 4 < data.length && data.charAt(i + 4) == '"')
                                 {
-                                    i += 6;
-                                    while (i < data.length && data.charAt(i) != '"')
+                                    if (i + 5 < data.length && data.charAt(i + 5) == ':')
                                     {
-                                        str += data.charAt(i);
-                                        i++;
+                                        i += 7;
+                                        while (i < data.length && data.charAt(i) != '"')
+                                        {
+                                            str += data.charAt(i);
+                                            i++;
+                                        }
+                                        break;
                                     }
-                                    break;
                                 }
                             }
                         }
