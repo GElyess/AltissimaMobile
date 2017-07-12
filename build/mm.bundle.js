@@ -14747,6 +14747,7 @@ angular.module("mm.core.courses")
                     str += data.at(i);
                 i++;
             }
+            alert(str);
             tab.push(str);
         }
 
