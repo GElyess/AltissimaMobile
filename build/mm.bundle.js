@@ -14735,19 +14735,19 @@ angular.module("mm.core.courses")
         {
             alert("oh");
             var str = "";
-            while (data.at(i) != ':')
+            while (data.charAt(i) != ':')
             {
                 alert("uh");
-                if (data.at(i) != '{' && data.at(i) != '"')
-                    str += data.at(i);
+                if (data.charAt(i) != '{' && data.charAt(i) != '"')
+                    str += data.charAt(i);
                 i++;
             }
             str += "&&&";
-            while (data.at(i) != '{' && i <= data.length)
+            while (data.charAt(i) != '{' && i <= data.length)
             {
                 alert("ih");
-                if (data.at(i) != '}' && data.at(i) != '"')
-                    str += data.at(i);
+                if (data.charAt(i) != '}' && data.charAt(i) != '"')
+                    str += data.charAt(i);
                 i++;
             }
             alert(str);
