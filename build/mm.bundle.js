@@ -14792,6 +14792,7 @@ angular.module("mm.core.courses")
             sous_tab["name"] = str;
 
             tab.push(sous_tab);
+            alert(tab + ", " + tab.length + ", " + JSON.stringify(tab));
         }
         alert(JSON.stringify(tab));
         $scope.catalogue = tab;
