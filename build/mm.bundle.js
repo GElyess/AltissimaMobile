@@ -14757,7 +14757,7 @@ angular.module("mm.core.courses")
                 }
                 i++;
             }
-            sous_tab["id"] = str;
+            sous_tab.push(str);
             str = "";
 
             while (true && i < data.length)
@@ -14789,7 +14789,7 @@ angular.module("mm.core.courses")
                 }
                 i++;
             }
-            sous_tab["name"] = str;
+            sous_tab.push(str);
 
             alert(sous_tab + " || " + JSON.stringify(sous_tab));
 
@@ -14820,7 +14820,8 @@ angular.module('mm.core.courses')
 
 // Toi, plus moi, plus tous ceux qui le veulent, plus lui, plus elle, plus tous ceux qui sont seulent, allez, venez, et entrez dans la danse, allez, venez, c'est notre jour de chance.
 
-// Les rois du monde, vivent aux sommets, ils ont la plus belle vue mais y'a un mais, ils ne savent ce qu'on pensent d'eux en bas, ils ne savent que c'est c'est nous les rois.
+// Les rois du monde, vivent aux sommets, ils ont la plus belle vue mais y'a un mais, ils ne savent ce qu'on pense d'eux en bas, ils ne savent qu'ici c'est nous les rois.
+// Les rois du monde, ont peur de tout, c'est qu'ils confondent les chiens et les loups, ils font des pièges où ils tomberont un jour, ils se protègent de tout même de l'amour.
 // Nous on fait l'amour, on fait la vie, jour après jour, nuit après nuit.
         return $mmCourses.getUserCourses().then(function(courses)
         {
