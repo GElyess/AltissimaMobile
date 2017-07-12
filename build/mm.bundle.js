@@ -14789,14 +14789,12 @@ angular.module("mm.core.courses")
                 }
                 i++;
             }
+            while (i < data.length && data.charAt(i) != "{")
+                i++;
             sous_tab.push(str);
 
-            alert(sous_tab + " || " + JSON.stringify(sous_tab));
-
             tab.push(sous_tab);
-//            alert(sous_tab["id"] + " || " + sous_tab["name"] + " || " + tab + " || " + tab.length + " || " + JSON.stringify(tab));
         }
-        alert(JSON.stringify(tab));
         $scope.catalogue = tab;
     }).error(function(data, status)
     {
