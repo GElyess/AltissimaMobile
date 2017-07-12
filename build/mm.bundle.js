@@ -14722,11 +14722,11 @@ angular.module("mm.core.courses")
 
     // ya lioubliou kartoshki :D ! ti toji lioubish kartoshki ? daaaa ya otchen lioubliou kartoshki :3 ! khotchesh kartoshki :D ? khatchou khatchou :D !
 
+    var tab = [];
+    var i = 0;
+
     $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
     {
-        var tab = [];
-        var i = 0;
-
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
 
@@ -14806,12 +14806,10 @@ angular.module("mm.core.courses")
     var cat_name = [];
     i = 0;
 
-//    tab.length;
-
-//    while (i != tab.length)
+    while (i != tab.length)
     {
-//        cat_id.push(tab[i][0]);
-//        cat_name.push(tab[i][1]);
+        cat_id.push(tab[i][0]);
+        cat_name.push(tab[i][1]);
         i++;
     }
 
