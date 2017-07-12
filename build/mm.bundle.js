@@ -14727,10 +14727,9 @@ angular.module("mm.core.courses")
         alert(data);
         data = JSON.stringify(data);
         alert(data);
-        data = data.substr(1, data.length - 1);
+        data = data.substr(1, data.length - 2);
         alert(data);
         data = data.split(",");
-        alert(data);
         $scope.catalogue = data;
     }).error(function(data, status)
     {
