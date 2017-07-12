@@ -14726,16 +14726,18 @@ angular.module("mm.core.courses")
     {
         var tab = array();
         var i = 0;
-        var acc = 0;
 
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
 
+        alert("ah");
         while (i <= data.length)
         {
+            alert("oh");
             var str = "";
             while (data.at(i) != ':')
             {
+                alert("uh");
                 if (data.at(i) != '{' && data.at(i) != '"')
                     str += data.at(i);
                 i++;
@@ -14743,6 +14745,7 @@ angular.module("mm.core.courses")
             str += "&&&";
             while (data.at(i) != '{' && i <= data.length)
             {
+                alert("ih");
                 if (data.at(i) != '}' && data.at(i) != '"')
                     str += data.at(i);
                 i++;
