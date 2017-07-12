@@ -14791,6 +14791,7 @@ angular.module("mm.core.courses")
             }
             while (i < data.length && data.charAt(i) != "{")
                 i++;
+
             sous_tab.push(str);
 
             tab.push(sous_tab);
