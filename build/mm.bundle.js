@@ -14757,7 +14757,8 @@ angular.module("mm.core.courses")
                 }
                 i++;
             }
-            sous_tab.id = str;
+            sous_tab["id"] = str;
+            alert(sous_tab["id"]);
             str = "";
 
             while (true && i < data.length)
@@ -14789,7 +14790,8 @@ angular.module("mm.core.courses")
                 }
                 i++;
             }
-            sous_tab.name = str;
+            sous_tab["name"] = str;
+            alert(sous_tab["name"]);
 
             tab.push(sous_tab);
         }
