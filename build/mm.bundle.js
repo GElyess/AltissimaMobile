@@ -14724,8 +14724,7 @@ angular.module("mm.core.courses")
 
     $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
     {
-        alert(JSON.stringify(data));
-        $scope.catalogue = data;
+        $scope.catalogue = JSON.stringify(data);
     }).error(function(data, status)
     {
         $scope.catalogue = "error : " + data + " " + status;
