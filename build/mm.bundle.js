@@ -14722,16 +14722,12 @@ angular.module("mm.core.courses")
 
     // ya lioubliou kartoshki :D ! ti toji lioubish kartoshki ? daaaa ya otchen lioubliou kartoshki :3 ! khotchesh kartoshki :D ? khatchou khatchou :D !
 
-    $scope.wesh = "THE COCONUT NUT IS A GIANT NUT ! IF YOU EAT TOO MUCH YOU GET VERY FAT !";
-
-    $http.get("http://go.altissimalearning.net/test_db_simpleA35MM15.php").success(function(data, status)
+    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
     {
-        $scope.untruc = data;
-        $scope.autretruc = status;
+        $scope.catalogue = data;
     }).error(function(data, status)
     {
-        $scope.untruc = "error -.- : " + data;
-        $scope.autretruc = "error -.- : " + status;
+        $scope.catalogue = "error : " + data + " " + status;
     });
 
 }]);
@@ -14751,6 +14747,8 @@ angular.module('mm.core.courses')
 
 // Toi, plus moi, plus tous ceux qui le veulent, plus lui, plus elle, plus tous ceux qui sont seulent, allez, venez, et entrez dans la danse, allez, venez, c'est notre jour de chance.
 
+// Les rois du monde, vivent aux sommets, ils ont la plus belle vue mais y'a un mais, ils ne savent ce qu'on pensent d'eux en bas, ils ne savent que c'est c'est nous les rois.
+// Nous on fait l'amour, on fait la vie, jour après jour, nuit après nuit.
         return $mmCourses.getUserCourses().then(function(courses)
         {
             $scope.courses = courses;
