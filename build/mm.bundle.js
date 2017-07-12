@@ -14730,30 +14730,64 @@ angular.module("mm.core.courses")
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
 
-        alert("ah");
-        while (i <= data.length)
+        while (i < data.length)
         {
-            alert("oh");
+            var sous_tab = []
             var str = "";
-            while (data.charAt(i) != ':')
+            while (true && i < data.length)
             {
-                alert("uh");
-                if (data.charAt(i) != '{' && data.charAt(i) != '"')
-                    str += data.charAt(i);
+                if (data.charAt(i) == 'i')
+                {
+                    if (i + 1 < data.length && data.charAt(i + 1) == 'd')
+                    {
+                        if (i + 2 < data.length && data.charAt(i + 2) == ':')
+                        {
+                            i += 3;
+                            while (i < data.length && data.charAt(i) != '"')
+                            {
+                                str += data.charAt(i);
+                                i++;
+                            }
+                            break;
+                        }
+                    }
+                }
                 i++;
             }
-            str += "&&&";
-            while (data.charAt(i) != '{' && i <= data.length)
-            {
-                alert("ih");
-                if (data.charAt(i) != '}' && data.charAt(i) != '"')
-                    str += data.charAt(i);
-                i++;
-            }
-            alert(str);
-            tab.push(str);
-        }
+            sous_tab["id"] = str;
+            str = "";
 
+            while (true && i < data.length)
+            {
+                if (data.charAt(i) == 'n')
+                {
+                    if (i + 1 < data.length && data.charAt(i + 1) == 'a')
+                    {
+                        if (i + 2 < data.length && data.charAt(i + 2) == 'm')
+                        {
+                            if (i + 3 < data.length && data.charAt(i + 3) == 'e')
+                            {
+                                if (i + 4 < data.length && data.charAt(i + 4) == ':')
+                                {
+                                    i += 3;
+                                    while (i < data.length && data.charAt(i) != '"')
+                                    {
+                                        str += data.charAt(i);
+                                        i++;
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                i++;
+            }
+            sous_tab["name"] = str;
+
+            tab.push(sous_tab);
+        }
+        alert(JSON.stringify(tab));
         $scope.catalogue = tab;
     }).error(function(data, status)
     {
