@@ -14806,8 +14806,10 @@ angular.module("mm.core.courses")
     var cat_name = [];
     i = 0;
 
+    alert(tab.length);
     while (i != tab.length)
     {
+        alert("ah");
         cat_id.push(tab[i][0]);
         cat_name.push(tab[i][1]);
         alert(tab[i][1]);
