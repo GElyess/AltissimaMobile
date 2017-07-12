@@ -14758,7 +14758,6 @@ angular.module("mm.core.courses")
                 i++;
             }
             sous_tab["id"] = str;
-            alert(sous_tab["id"]);
             str = "";
 
             while (true && i < data.length)
@@ -14791,9 +14790,9 @@ angular.module("mm.core.courses")
                 i++;
             }
             sous_tab["name"] = str;
-            alert(sous_tab["name"]);
 
             tab.push(sous_tab);
+            alert(tab + ", " tab.length + ", " + JSON.stringify(tab));
         }
         alert(JSON.stringify(tab));
         $scope.catalogue = tab;
