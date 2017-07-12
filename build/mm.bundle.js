@@ -14724,7 +14724,7 @@ angular.module("mm.core.courses")
 
     $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
     {
-        var tab = array();
+        var tab = [];
         var i = 0;
 
         data = JSON.stringify(data);
