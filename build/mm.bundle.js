@@ -14743,7 +14743,7 @@ angular.module("mm.core.courses")
                     {
                         if (i + 2 < data.length && data.charAt(i + 2) == ':')
                         {
-                            i += 3;
+                            i += 4;
                             while (i < data.length && data.charAt(i) != '"')
                             {
                                 str += data.charAt(i);
@@ -14771,7 +14771,7 @@ angular.module("mm.core.courses")
                             {
                                 if (i + 4 < data.length && data.charAt(i + 4) == ':')
                                 {
-                                    i += 3;
+                                    i += 6;
                                     while (i < data.length && data.charAt(i) != '"')
                                     {
                                         str += data.charAt(i);
