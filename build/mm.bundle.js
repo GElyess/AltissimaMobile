@@ -14805,16 +14805,16 @@ angular.module("mm.core.courses")
     var cat_id = [];
     var cat_name = [];
     var i = 0;
-
+/*
     while (i != tab.length)
     {
         cat_id.push(tab[i][0]);
         cat_name.push(tab[i][1]);
         i++;
     }
-/*
+*/
     $scope.catalogue_id = cat_id;
-    $scope.catalogue_name = cat_name;*/
+    $scope.catalogue_name = cat_name;
 
 }]);
 
