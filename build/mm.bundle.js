@@ -14741,6 +14741,7 @@ angular.module("mm.core.courses")
                 var str = "";
 
                 i = data.search("\"id\":") + 6;
+                alert(i);
                 if (i == -1)
                     break;
                 while (i < data.length && data.charAt(i) != '"')
@@ -14753,6 +14754,7 @@ angular.module("mm.core.courses")
                 data = data.substr(i);
 
                 i = data.search("\"name\":") + 8;
+                alert(i);
                 if (i == -1)
                     break;
                 while (i < data.length && data.charAt(i) != '"')
