@@ -14719,9 +14719,9 @@ angular.module("mm.core.courses")
 {
 
     alert(data);
-    alert(jQuery.parseJSON(data));
+    alert(JSON.parse(data));
     alert(JSON.stringify(data));
-    alert(JSON.stringify(jQuery.parseJSON(data)));    
+    alert(JSON.parse(JSON.stringify(data)));
 
 //    alert($mmSite.getUserId());
 
