@@ -14726,108 +14726,36 @@ angular.module("mm.core.courses")
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
 
-/*        while (i < data.length)
+        while (true)
         {
             var sous_tab = [];
             var str = "";
-*/
-//                alert(data);
-            while (true)
+
+            i = data.search("\"id\":") + 6;
+            if (i - 6 == -1)
+                break;
+            while (i < data.length && data.charAt(i) != '"')
             {
-                var sous_tab = [];
-                var str = "";
-
-                i = data.search("\"id\":") + 6;
-                if (i - 6 == -1)
-                    break;
-                while (i < data.length && data.charAt(i) != '"')
-                {
-                    str += data.charAt(i);
-                    i++;
-                }
-                sous_tab.push(str);
-                str = "";
-                data = data.substr(i);
-                alert(data);
-
-                i = data.search("\"name\":") + 8;
-                if (i - 8 == -1)
-                    break;
-                while (i < data.length && data.charAt(i) != '"')
-                {
-                    str += data.charAt(i);
-                    i++;
-                }
-                sous_tab.push(str);
-                str = "";
-                data = data.substr(i);
-                tab.push(sous_tab);
-//                alert(data);
-
-            }
-/*
-            while (true && i < data.length)
-            {
-                if (data.charAt(i) == 'i')
-                {
-                    if (i + 1 < data.length && data.charAt(i + 1) == 'd')
-                    {
-                        if (i + 2 < data.length && data.charAt(i + 2) == '"')
-                        {
-                            if (i + 3 < data.length && data.charAt(i + 3) == ':')
-                            {
-                                i += 5;
-                                while (i < data.length && data.charAt(i) != '"')
-                                {
-                                    str += data.charAt(i);
-                                    i++;
-                                }
-                                break;
-                            }
-                        }
-                    }
-                }
+                str += data.charAt(i);
                 i++;
             }
             sous_tab.push(str);
             str = "";
-
-            while (true && i < data.length)
+            data = data.substr(i);
+            i = data.search("\"name\":") + 8;
+            if (i - 8 == -1)
+                break;
+            while (i < data.length && data.charAt(i) != '"')
             {
-                if (data.charAt(i) == 'n')
-                {
-                    if (i + 1 < data.length && data.charAt(i + 1) == 'a')
-                    {
-                        if (i + 2 < data.length && data.charAt(i + 2) == 'm')
-                        {
-                            if (i + 3 < data.length && data.charAt(i + 3) == 'e')
-                            {
-                                if (i + 4 < data.length && data.charAt(i + 4) == '"')
-                                {
-                                    if (i + 5 < data.length && data.charAt(i + 5) == ':')
-                                    {
-                                        i += 7;
-                                        while (i < data.length && data.charAt(i) != '"')
-                                        {
-                                            str += data.charAt(i);
-                                            i++;
-                                        }
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                str += data.charAt(i);
                 i++;
             }
-            while (i < data.length && data.charAt(i) != "{")
-                i++;
-
             sous_tab.push(str);
-*/
+            str = "";
+            data = data.substr(i);
             tab.push(sous_tab);
-//        }
+        }
+
         $scope.catalogue = tab;
 
 
