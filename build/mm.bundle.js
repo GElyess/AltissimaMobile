@@ -14772,7 +14772,7 @@ angular.module("mm.core.courses")
 */
         $scope.catalogue = data;
 
-        alert(data[0].CatalogueEntity);
+        alert(data[0].catalogueentity);
 
         var cat_id = [];
         var cat_name = [];
