@@ -14718,7 +14718,12 @@ angular.module("mm.core.courses")
     function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
 {
 
-    alert($mmSite.getUserId());
+    alert(data);
+    alert(jQuery.parseJSON(data));
+    alert(JSON.stringify(data));
+    alert(JSON.stringify(jQuery.parseJSON(data)));    
+
+//    alert($mmSite.getUserId());
 
     $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT id, name FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'")
     .success(function(data, status)
