@@ -14718,19 +14718,41 @@ angular.module("mm.core.courses")
     function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
 {
 
-    var tab = [];
-    var i = 0;
 
     $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
     {
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
 
+        var tab = [];
+        var i = 0;
+        var sous_tab = [];
+        var str = "";
+        var toSearch = "\"id\":";
+        var howFar = 6;
+
         while (true)
         {
-            var sous_tab = [];
-            var str = "";
+            sous_tab = [];
+            str = "";
 
+            i = data.search(toSearch) + howFar;
+            if (i - howFar == -1)
+                break;
+            while (i < data.length && data.charAt(i) != '"')
+            {
+                str += data.charAt(i);
+                i++;
+            }
+
+            sous_tab.push(str);
+            str = "";
+            data = data.substr(i);
+            tab.push(sous_tab);
+            toSearch = (toSearch == "\"id\":") ? ("\"name\":") : ("\"id\":");
+            howFar = (howFar == 6) ? (8) : (6);
+
+/*
             i = data.search("\"id\":") + 6;
             if (i - 6 == -1)
                 break;
@@ -14742,6 +14764,7 @@ angular.module("mm.core.courses")
             sous_tab.push(str);
             str = "";
             data = data.substr(i);
+
             i = data.search("\"name\":") + 8;
             if (i - 8 == -1)
                 break;
@@ -14753,7 +14776,7 @@ angular.module("mm.core.courses")
             sous_tab.push(str);
             str = "";
             data = data.substr(i);
-            tab.push(sous_tab);
+            tab.push(sous_tab);*/
         }
 
         $scope.catalogue = tab;
@@ -14772,9 +14795,6 @@ angular.module("mm.core.courses")
 
         $scope.catalogue_id = cat_id;
         $scope.catalogue_name = cat_name;
-
-
-
 
     }).error(function(data, status)
     {
