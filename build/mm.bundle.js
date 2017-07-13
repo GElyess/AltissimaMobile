@@ -14720,7 +14720,7 @@ angular.module("mm.core.courses")
 
 //    alert($mmSite.getUserId());
 
-    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT id, name FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'")
+    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'")
     .success(function(data, status)
     {
 /*        alert("ah" + data[0]);
@@ -14771,6 +14771,8 @@ angular.module("mm.core.courses")
         }
 */
         $scope.catalogue = data;
+
+        alert(data[0].CatalogueEntity);
 
         var cat_id = [];
         var cat_name = [];
