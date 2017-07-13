@@ -14719,7 +14719,7 @@ angular.module("mm.core.courses")
 {
 
 
-    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
+    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=ah").success(function(data, status)
     {
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
@@ -14728,8 +14728,6 @@ angular.module("mm.core.courses")
         var i = 0;
         var sous_tab = [];
         var str = "";
-        var toSearch = "\"id\":";
-        var howFar = 6;
 
         while (true)
         {
@@ -14763,7 +14761,6 @@ angular.module("mm.core.courses")
         }
 
         $scope.catalogue = tab;
-
 
         var cat_id = [];
         var cat_name = [];
