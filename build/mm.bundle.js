@@ -14795,28 +14795,31 @@ angular.module("mm.core.courses")
             sous_tab.push(str);
 
             tab.push(sous_tab);
-            alert(tab.length);
         }
         $scope.catalogue = tab;
+
+
+        var cat_id = [];
+        var cat_name = [];
+        i = 0;
+
+        while (i != tab.length)
+        {
+            cat_id.push(tab[i][0]);
+            cat_name.push(tab[i][1]);
+            i++;
+        }
+
+        $scope.catalogue_id = cat_id;
+        $scope.catalogue_name = cat_name;
+
+
+
+
     }).error(function(data, status)
     {
         $scope.catalogue = "error : " + data + ", " + status;
     });
-
-    var cat_id = [];
-    var cat_name = [];
-    i = 0;
-
-    alert(tab.length);
-    while (i != tab.length)
-    {
-        cat_id.push(tab[i][0]);
-        cat_name.push(tab[i][1]);
-        i++;
-    }
-
-    $scope.catalogue_id = cat_id;
-    $scope.catalogue_name = cat_name;
 
 }]);
 
