@@ -14713,14 +14713,10 @@ angular.module('mm.core.courses')
 
 
 
-// That moment when you're tired af and you don't know what to do anymore so you just sit in front of your computer looking at the code, typing shit and hoping for a miracle to happen.
-
 angular.module("mm.core.courses")
 .controller("mmWeshAlorsCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
     function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
 {
-
-    // ya lioubliou kartoshki :D ! ti toji lioubish kartoshki ? daaaa ya otchen lioubliou kartoshki :3 ! khotchesh kartoshki :D ? khatchou khatchou :D !
 
     var tab = [];
     var i = 0;
@@ -14735,13 +14731,13 @@ angular.module("mm.core.courses")
             var sous_tab = [];
             var str = "";
 */
+                alert(data);
             while (true)
             {
                 var sous_tab = [];
                 var str = "";
 
                 i = data.search("\"id\":") + 6;
-                alert(i);
                 if (i == -1)
                     break;
                 while (i < data.length && data.charAt(i) != '"')
@@ -14752,9 +14748,9 @@ angular.module("mm.core.courses")
                 sous_tab.push(str);
                 str = "";
                 data = data.substr(i);
+                alert(data);
 
                 i = data.search("\"name\":") + 8;
-                alert(i);
                 if (i == -1)
                     break;
                 while (i < data.length && data.charAt(i) != '"')
@@ -14766,6 +14762,7 @@ angular.module("mm.core.courses")
                 str = "";
                 data = data.substr(i);
                 tab.push(sous_tab);
+                alert(data);
 
             }
 /*
@@ -14869,13 +14866,6 @@ angular.module('mm.core.courses')
     $scope.filter = {};
     function fetchCourses(refresh)
     {
-        // Trois nuits par semaine c'est sa peau contre ma peau et je dors avec elle, trois nuits par semaine mon dieu qu'elle est belle.
-
-// Toi, plus moi, plus tous ceux qui le veulent, plus lui, plus elle, plus tous ceux qui sont seulent, allez, venez, et entrez dans la danse, allez, venez, c'est notre jour de chance.
-
-// Les rois du monde, vivent aux sommets, ils ont la plus belle vue mais y'a un mais, ils ne savent ce qu'on pense d'eux en bas, ils ne savent qu'ici c'est nous les rois.
-// Les rois du monde, ont peur de tout, c'est qu'ils confondent les chiens et les loups, ils font des pièges où ils tomberont un jour, ils se protègent de tout même de l'amour.
-// Nous on fait l'amour, on fait la vie, jour après jour, nuit après nuit.
         return $mmCourses.getUserCourses().then(function(courses)
         {
             $scope.courses = courses;
