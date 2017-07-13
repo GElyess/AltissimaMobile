@@ -14719,7 +14719,7 @@ angular.module("mm.core.courses")
 {
 
 
-    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=ah").success(function(data, status)
+    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
     {
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
