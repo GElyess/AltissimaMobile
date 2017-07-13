@@ -14723,10 +14723,13 @@ angular.module("mm.core.courses")
     $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT id, name FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'")
     .success(function(data, status)
     {
-        alert("ah" + data);
+        alert("ah" + data[0]);
+        alert("ah1" + data[0].id);
+        alert("ah2" + data.id);
+/*        alert("ah" + data);
 //        alert("ah1" + JSON.parse(data));
         alert("ah2" + JSON.stringify(data));
-        alert("ah3" + JSON.parse(JSON.stringify(data)));
+        alert("ah3" + JSON.parse(JSON.stringify(data)));*/
 
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
