@@ -14795,6 +14795,7 @@ angular.module("mm.core.courses")
             sous_tab.push(str);
 
             tab.push(sous_tab);
+            alert(tab.length);
         }
         $scope.catalogue = tab;
     }).error(function(data, status)
@@ -14809,10 +14810,8 @@ angular.module("mm.core.courses")
     alert(tab.length);
     while (i != tab.length)
     {
-        alert("ah");
         cat_id.push(tab[i][0]);
         cat_name.push(tab[i][1]);
-        alert(tab[i][1]);
         i++;
     }
 
