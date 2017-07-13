@@ -14724,9 +14724,9 @@ angular.module("mm.core.courses")
     .success(function(data, status)
     {
         alert("ah" + data);
-        alert("ah1" + JSON.parse(data));
+//        alert("ah1" + JSON.parse(data));
         alert("ah2" + JSON.stringify(data));
-        alert("ah3" + JSON.parse(JSON.stringify(data)));
+//        alert("ah3" + JSON.parse(JSON.stringify(data)));
 
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
