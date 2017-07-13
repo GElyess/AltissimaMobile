@@ -14730,10 +14730,43 @@ angular.module("mm.core.courses")
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
 
-        while (i < data.length)
+/*        while (i < data.length)
         {
-            var sous_tab = []
+            var sous_tab = [];
             var str = "";
+*/
+            while (true)
+            {
+                var sous_tab = [];
+                var str = "";
+
+                i = data.search("\"id\":") + 6;
+                if (i == -1)
+                    break;
+                while (i < data.length && data.charAt(i) != '"')
+                {
+                    str += data.charAt(i);
+                    i++;
+                }
+                sous_tab.push(str);
+                str = "";
+                data = data.substr(i);
+
+                i = data.search("\"name\":") + 8;
+                if (i == -1)
+                    break;
+                while (i < data.length && data.charAt(i) != '"')
+                {
+                    str += data.charAt(i);
+                    i++;
+                }
+                sous_tab.push(str);
+                str = "";
+                data = data.substr(i);
+                tab.push(sous_tab);
+
+            }
+/*
             while (true && i < data.length)
             {
                 if (data.charAt(i) == 'i')
@@ -14793,9 +14826,9 @@ angular.module("mm.core.courses")
                 i++;
 
             sous_tab.push(str);
-
+*/
             tab.push(sous_tab);
-        }
+//        }
         $scope.catalogue = tab;
 
 
