@@ -14770,6 +14770,7 @@ angular.module("mm.core.courses")
             tab.push(sous_tab);
         }
 */
+        alert(JSON.stringify(data));
         $scope.catalogue = data;
 
         alert(data[0].catalogueentity);
