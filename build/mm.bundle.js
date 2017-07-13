@@ -14735,23 +14735,6 @@ angular.module("mm.core.courses")
         {
             sous_tab = [];
             str = "";
-/*
-            i = data.search(toSearch) + howFar;
-            if (i - howFar == -1)
-                break;
-            while (i < data.length && data.charAt(i) != '"')
-            {
-                str += data.charAt(i);
-                i++;
-            }
-
-            sous_tab.push(str);
-            str = "";
-            data = data.substr(i);
-            tab.push(sous_tab);
-            toSearch = (toSearch == "\"id\":") ? ("\"name\":") : ("\"id\":");
-            howFar = (howFar == 6) ? (8) : (6);
-*/
 
             i = data.search("\"id\":") + 6;
             if (i - 6 == -1)
