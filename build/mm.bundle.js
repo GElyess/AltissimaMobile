@@ -14719,7 +14719,8 @@ angular.module("mm.core.courses")
 {
 
 
-    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php").success(function(data, status)
+    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT id, name FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'")
+    .success(function(data, status)
     {
         data = JSON.stringify(data);
         data = data.substr(1, data.length - 2);
