@@ -14731,14 +14731,14 @@ angular.module("mm.core.courses")
             var sous_tab = [];
             var str = "";
 */
-                alert(data);
+//                alert(data);
             while (true)
             {
                 var sous_tab = [];
                 var str = "";
 
                 i = data.search("\"id\":") + 6;
-                if (i == -1)
+                if (i - 6 == -1)
                     break;
                 while (i < data.length && data.charAt(i) != '"')
                 {
@@ -14751,7 +14751,7 @@ angular.module("mm.core.courses")
                 alert(data);
 
                 i = data.search("\"name\":") + 8;
-                if (i == -1)
+                if (i - 8 == -1)
                     break;
                 while (i < data.length && data.charAt(i) != '"')
                 {
@@ -14762,7 +14762,7 @@ angular.module("mm.core.courses")
                 str = "";
                 data = data.substr(i);
                 tab.push(sous_tab);
-                alert(data);
+//                alert(data);
 
             }
 /*
