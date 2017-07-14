@@ -14758,8 +14758,11 @@ angular.module("mm.core.courses")
                     data.splice(i, 1);
                 }
                 i++;
+                alert(data.length);
             }
-            alert(data2[0].data);
+
+            alert("ah");
+            alert(data.length);
 
             var cat_id = [];
             var cat_name = [];
