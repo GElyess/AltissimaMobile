@@ -14718,69 +14718,33 @@ angular.module("mm.core.courses")
     function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
 {
 
-//    alert($mmSite.getUserId());
-
     $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'")
     .success(function(data, status)
     {
-/*        alert("ah" + data[0]);
-        alert("ah1" + data[0].id);
-        alert("ah2" + data.id);
-/*        alert("ah" + data);
-//        alert("ah1" + JSON.parse(data));
-        alert("ah2" + JSON.stringify(data));
-        alert("ah3" + JSON.parse(JSON.stringify(data)));*/
-/*
-        data = JSON.stringify(data);
-        data = data.substr(1, data.length - 2);
-
-        var tab = [];
-        var i = 0;
-        var sous_tab = [];
-        var str = "";
-
-        while (true)
-        {
-            sous_tab = [];
-            str = "";
-
-            i = data.search("\"id\":") + 6;
-            if (i - 6 == -1)
-                break;
-            while (i < data.length && data.charAt(i) != '"')
-            {
-                str += data.charAt(i);
-                i++;
-            }
-            sous_tab.push(str);
-            str = "";
-            data = data.substr(i);
-
-            i = data.search("\"name\":") + 8;
-            if (i - 8 == -1)
-                break;
-            while (i < data.length && data.charAt(i) != '"')
-            {
-                str += data.charAt(i);
-                i++;
-            }
-            sous_tab.push(str);
-            str = "";
-            data = data.substr(i);
-            tab.push(sous_tab);
-        }
-*/
         $scope.catalogue = data;
 
         $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId())
         .success(function(data2, status2)
         {
+            i = 0;
+            while (i != data.length)
+            {
+                var allEntite = data[i].CatalogueEntity.split('\n');
+                var j = 0;
+
+                while (j != allEntite.length)
+                {
+                    alert(allEntite[j]);
+                    j++;
+                }
+                i++;
+            }
             alert(data2[0].data);
 
             var cat_id = [];
             var cat_name = [];
             i = 0;
-    
+
             while (i != data.length)
             {
                 cat_id.push(data[i].id);
