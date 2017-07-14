@@ -14736,13 +14736,18 @@ angular.module("mm.core.courses")
                     var k = 0;
                     while (k < data2.length)
                     {
-                        alert(data2[k].data + " ah " + allEntite[j].split('/')[0]);
                         if (data2[k].data == allEntite[j].split('/')[0])
+                        {
+                            alert("ah");
                             break;
+                        }
                         k++;
                     }
                     if (k < data2.length)
+                    {
+                        alert("oh");
                         break;
+                    }
                     j++;
                 }
                 if (j == allEntite.length)
