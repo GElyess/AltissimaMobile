@@ -14772,21 +14772,28 @@ angular.module("mm.core.courses")
 */
         $scope.catalogue = data;
 
-        alert(data[0].CatalogueEntity);
-
-        var cat_id = [];
-        var cat_name = [];
-        i = 0;
-
-        while (i != data.length)
+        $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId())
+        .success(function(data2, status2)
         {
-            cat_id.push(data[i].id);
-            cat_name.push(data[i].name);
-            i++;
-        }
+            alert(data2[0].data);
 
-        $scope.catalogue_id = cat_id;
-        $scope.catalogue_name = cat_name;
+            var cat_id = [];
+            var cat_name = [];
+            i = 0;
+    
+            while (i != data.length)
+            {
+                cat_id.push(data[i].id);
+                cat_name.push(data[i].name);
+                i++;
+            }
+    
+            $scope.catalogue_id = cat_id;
+            $scope.catalogue_name = cat_name;
+        }).error(function(data2, status2)
+        {
+            $scope.catalogue = "error : " + data2 + ", " + status2;
+        });
 
     }).error(function(data, status)
     {
