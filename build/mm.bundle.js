@@ -14737,7 +14737,7 @@ angular.module("mm.core.courses")
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql)
         .success(function(data2, status2)
         {
-            // Ici on va check les entite des user et des catalogue pour n'afficher que les catalogues que le user doit voir
+            // Ici on va check les entite des users et des catalogues pour n'afficher que les catalogues que le user (user va veut dire utilisateur en anglais ;)) doit voir
             i = 0;
             while (i < data.length)
             {
