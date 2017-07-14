@@ -14752,7 +14752,8 @@ angular.module("mm.core.courses")
                 }
                 if (j == allEntite.length)
                     data.splice(i, 1);
-                i++;
+                else
+                    i++;
             }
 
             var cat_id = [];
