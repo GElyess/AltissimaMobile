@@ -14722,7 +14722,7 @@ angular.module("mm.core.courses")
     .success(function(data, status)
     {
         $scope.catalogue = data;
-
+        alert($mmSite.getUserId());
         $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId())
         .success(function(data2, status2)
         {
