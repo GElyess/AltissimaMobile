@@ -14712,11 +14712,12 @@ angular.module('mm.core.courses')
 }]);
 
 
-
+// ici on va faire les requetes sql et definir les variables qui vont etre apellés dans le html
 angular.module("mm.core.courses")
 .controller("mmWeshAlorsCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
     function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
 {
+    // on initialise les variables pour la requetes sql
     var url = "http://gouv.altissimalearning.com/test_db_simpleA35MM15.php";
     var ip = "5.196.80.71";
     var login = "altissim";
@@ -14724,15 +14725,19 @@ angular.module("mm.core.courses")
     var table = "altissim_gouvmdl";
     var sql;
 
+    // cette requete va permettre de get tout les catalogues
     sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'";
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql)
     .success(function(data, status)
     {
         $scope.catalogue = data;
+
+        // celle ce va permettre de get les entite des user
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql)
         .success(function(data2, status2)
         {
+            // Ici on va check les entite des user et des catalogue pour n'afficher que les catalogues que le user doit voir
             i = 0;
             while (i < data.length)
             {
@@ -14742,6 +14747,7 @@ angular.module("mm.core.courses")
                 while (j < allEntite.length)
                 {
                     var k = 0;
+
                     while (k < data2.length)
                     {
                         if (data2[k].data == allEntite[j].split('/')[0])
@@ -14760,15 +14766,16 @@ angular.module("mm.core.courses")
 
             var cat_id = [];
             var cat_name = [];
-            i = 0;
 
+            i = 0;
             while (i != data.length)
             {
                 cat_id.push(data[i].id);
                 cat_name.push(data[i].name);
                 i++;
             }
-    
+
+            // On stock l'id et les name des catalogue dans le scope qui pourra etre apellé dans le html
             $scope.catalogue_id = cat_id;
             $scope.catalogue_name = cat_name;
         }).error(function(data2, status2)
