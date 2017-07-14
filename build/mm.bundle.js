@@ -14737,16 +14737,26 @@ angular.module("mm.core.courses")
                     var k = 0;
                     while (k != data2.length)
                     {
+                        alert(data2[k].data + " ah " + allEntite[j]);
                         if (data2[k].data == allEntite[j])
+                        {
+                            alert("breaktrough lets turn the page");
                             break;
+                        }
                         k++;
                     }
                     if (k != data2.length)
+                    {
+                        alert("wow");
                         break;
+                    }
                     j++;
                 }
                 if (j == allEntite.length)
+                {
+                    alert("ah --");
                     data.splice(i, 1);
+                }
                 i++;
             }
             alert(data2[0].data);
