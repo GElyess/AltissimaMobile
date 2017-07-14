@@ -14717,12 +14717,20 @@ angular.module("mm.core.courses")
 .controller("mmWeshAlorsCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
     function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
 {
+    var url = "http://gouv.altissimalearning.com/test_db_simpleA35MM15.php";
+    var ip = "5.196.80.71";
+    var login = "altissim";
+    var mdp = "@Mtsmst01";
+    var table = "altissim_gouvmdl";
+    var sql;
 
-    $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'")
+    sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'";
+    $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql)
     .success(function(data, status)
     {
         $scope.catalogue = data;
-        $http.get("http://gouv.altissimalearning.com/test_db_simpleA35MM15.php?ip=5.196.80.71&login=altissim&mdp=@Mtsmst01&table=altissim_gouvmdl&sql=SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId())
+        sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
+        $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql)
         .success(function(data2, status2)
         {
             i = 0;
