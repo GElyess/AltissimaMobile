@@ -14727,16 +14727,15 @@ angular.module("mm.core.courses")
         .success(function(data2, status2)
         {
             i = 0;
-            while (i != data.length)
+            while (i < data.length)
             {
-                alert("th eboys are back");
                 var allEntite = data[i].CatalogueEntity.split('\n');
                 var j = 0;
 
-                while (j != allEntite.length)
+                while (j < allEntite.length)
                 {
                     var k = 0;
-                    while (k != data2.length)
+                    while (k < data2.length)
                     {
                         alert(data2[k].data + " ah " + allEntite[j]);
                         if (data2[k].data == allEntite[j])
@@ -14746,7 +14745,7 @@ angular.module("mm.core.courses")
                         }
                         k++;
                     }
-                    if (k != data2.length)
+                    if (k < data2.length)
                     {
 //                        alert("wow");
                         break;
@@ -14759,7 +14758,6 @@ angular.module("mm.core.courses")
                     data.splice(i, 1);
                 }
                 i++;
-                alert(data.length);
             }
 
             alert("ah");
