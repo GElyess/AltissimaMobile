@@ -1,3 +1,9 @@
+function ah()
+{
+	alert("ah");
+	alert(window.location.href);
+}
+
 alert("ah");
 
 alert(window.location.href);
