@@ -10709,7 +10709,8 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
         url: "/catalogue",
         params:
         {
-            id: 0
+            catid: 0,
+            courseid: 0
         },
         views:
         {
@@ -14717,16 +14718,15 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     var table = "altissim_gouvmdl";
     var sql;
 
-//    alert($stateParams.id);
-
     // cette requete va permettre de get tout les catalogues
-    if ($stateParams.id == 0)
+    if ($stateParams.catid == 0)
         sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'";
     else
-        sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE parent = " + $stateParams.id;
+        sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE parent = " + $stateParams.catid;
 
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
+        // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
 
         // celle ci va permettre de get les entitees des users
@@ -14760,20 +14760,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                     i++;
             }
 
-            var cat_id = [];
-            var cat_name = [];
-
-            i = 0;
-            while (i != data.length)
-            {
-                cat_id.push(data[i].id);
-                cat_name.push(data[i].name);
-                i++;
-            }
-
-            // On stock les ids et les names des catalogues dans le scope qui pourra etre apellé dans le .html
-            $scope.catalogue_id = cat_id;
-            $scope.catalogue_name = cat_name;
         }).error(function(data2, status2)
         {
             $scope.catalogue = "error : " + data2 + ", " + status2;
@@ -14783,6 +14769,21 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     {
         $scope.catalogue = "error : " + data + ", " + status;
     });
+
+    if ($stateParams.catid != 0 && $stateParams.courseid == 0)
+    {
+        sql = "SELECT id, fullname, FLOOR(idnumber) FROM mdlcourse WHERE category = " + $stateParams.catid;
+    }
+    $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
+    {
+        $scope.course = data;
+        
+
+    }).error(function(data, status)
+    {
+        $scope.course = "error : " + data + ", " + status;
+    });
+
 
 }]);
 
