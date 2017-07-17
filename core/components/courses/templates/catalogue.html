@@ -2,29 +2,36 @@
     <ion-content mm-state-class>
         <div ng-app="mm.core.courses" ng-controller="mmcatalogueCtrl">
 
-            <p class="item item-divider" ng-repeat="cat in catalogue_name">{{cat}}</p>
+            <p class="item item-divider" ng-repeat="cat in catalogue_name" onclick="ah()">{{cat}}</p>
 
         </div>
-<script type="text/javascript" src="catalogue.js"></script>
     </ion-content>
 </ion-view>
+<script type="text/javascript" src="catalogue.js"></script>
 
 <script>
+
+	function ah()
+	{
+		alert("ah");
+		alert(window.location.href);
+	}
 
 	alert(window.location.href);
 
 	function $_GET(param)
 	{
 		var vars = {};
-		window.location.href.replace(location.hash, '').replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function(m, key, value)
+		window.location.href.replace(location.hash, "").replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function(m, key, value)
 		{
-			vars[key] = value !== (undefined) ? (value) : ('');
+			vars[key] = value !== (undefined) ? (value) : ("");
 		});
-	
+
 		if (param)
 		{
-			return (vars[param]) ? (vars[param]) : (null);	
+			return (vars[param]) ? (vars[param]) : (null);
 		}
 		return (vars);
 	}
+
 </script>
