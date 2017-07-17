@@ -14718,6 +14718,8 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     var table = "altissim_gouvmdl";
     var sql;
 
+    alert($stateParams.catid);
+
     // cette requete va permettre de get tout les catalogues
     if ($stateParams.catid == 0)
         sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'";
@@ -14733,7 +14735,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
         {
-            // Ici on va check les entitees des users et des catalogues pour n'afficher que les catalogues que le user (user ça va veut dire utilisateur en anglais :3) doit voir
+            // Ici on va check les entitees des users et des catalogues pour n'afficher que les catalogues que le user (user ça va veut dire utilisateur en francais) doit voir
             i = 0;
             while (i < data.length)
             {
@@ -14777,7 +14779,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
         $scope.course = data;
-        
+
 
     }).error(function(data, status)
     {
