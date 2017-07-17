@@ -10703,15 +10703,15 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
 })
 .config(["$stateProvider", function($stateProvider) {
     $stateProvider
-    .state("site.testMomoCat",
+    .state("site.Catalogue",
     {
-        url: "/testMomoCat",
+        url: "/Catalogue",
         views:
         {
             "site":
             {
                 templateUrl: "core/components/courses/templates/Catalogue.html",
-                controller: "mmTestMomoCatCtrl"
+                controller: "mmCatalogueCtrl"
             }
         }
     })
@@ -14715,7 +14715,7 @@ angular.module('mm.core.courses')
 
 // ici on va faire les requetes sql et definir les variables qui vont etre apellés dans le html
 angular.module("mm.core.courses")
-.controller("mmTestMomoCatCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
+.controller("mmCatalogurCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
     function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
 {
     // on initialise les variables pour la requetes sql
