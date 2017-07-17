@@ -5,6 +5,11 @@
             <p class="item item-divider" ng-repeat="cat in catalogue_name">{{cat}}</p>
     
         </div>
+
+        <script>
+        alert("ah");
+        </script>
+
     </ion-content>
 </ion-view>
 
@@ -15,7 +20,7 @@
 	function $_GET(param)
 	{
 		var vars = {};
-		window.location.href.replace( location.hash, '' ).replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function(m, key, value)
+		window.location.href.replace(location.hash, '').replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function(m, key, value)
 		{
 			vars[key] = value !== (undefined) ? (value) : ('');
 		});
