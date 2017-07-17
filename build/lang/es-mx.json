@@ -483,6 +483,7 @@
     "mm.courses.allowguests": "Este curso permite la entrada de invitados",
     "mm.courses.availablecourses": "Cursos disponibles",
     "mm.courses.cannotretrievemorecategories": "No se pueden recuperar categorías más profundas que el nivel {{$a}}.",
+    "mm.courses.catalogue": "catalogar" ,
     "mm.courses.categories": "Categorías",
     "mm.courses.confirmselfenrol": "¿Está Usted seguro de querer inscribirse a Usted mismo en este curso?",
     "mm.courses.courses": "Cursos",

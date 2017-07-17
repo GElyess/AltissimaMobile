@@ -483,6 +483,7 @@
     "mm.courses.allowguests": "Der Kurs ist für Gäste zugänglich",
     "mm.courses.availablecourses": "Kursliste",
     "mm.courses.cannotretrievemorecategories": "Kursbereiche tiefer als Level {{$a}} können nicht abgerufen werden.",
+    "mm.courses.catalogue": "Katalog" ,    
     "mm.courses.categories": "Kursbereiche",
     "mm.courses.confirmselfenrol": "Möchten Sie sich selbst in diesen Kurs einschreiben?",
     "mm.courses.courses": "Kurse",

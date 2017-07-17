@@ -448,6 +448,7 @@
     "mm.courses.allowguests": "Ikastaro honetan bisitariak sar daitezke",
     "mm.courses.availablecourses": "Eskura dauden ikastaroak",
     "mm.courses.cannotretrievemorecategories": "{{$a}}. maila baino sakonagoko kategoriak ezin dira eskuratu.",
+    "mm.courses.catalogue": "katalogoa" ,
     "mm.courses.categories": "Ikastaro-kategoriak",
     "mm.courses.confirmselfenrol": "Ziur zaude ikastaro honetan izena eman nahi duzula?",
     "mm.courses.courses": "Ikastaroak",

@@ -483,6 +483,7 @@
     "mm.courses.allowguests": "Les visiteurs anonymes sont autorisés dans ce cours",
     "mm.courses.availablecourses": "Cours disponibles",
     "mm.courses.cannotretrievemorecategories": "Les catégories de niveau plus grand que {{$a}} ne peuvent pas être chargées.",
+    "mm.courses.catalogue": "Catalogue" ,
     "mm.courses.categories": "Catégories de cours",
     "mm.courses.confirmselfenrol": "Voulez-vous vraiment vous inscrire vous-même dans ce cours ?",
     "mm.courses.courses": "Cours",

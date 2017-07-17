@@ -477,6 +477,7 @@
     "mm.courses.allowguests": "This course allows guest users to enter",
     "mm.courses.availablecourses": "Available courses",
     "mm.courses.cannotretrievemorecategories": "Categories deeper than level {{$a}} cannot be retrieved.",
+    "mm.courses.catalogue": "catalog" ,
     "mm.courses.categories": "Course categories",
     "mm.courses.confirmselfenrol": "Are you sure you want to enrol yourself in this course?",
     "mm.courses.courses": "Courses",

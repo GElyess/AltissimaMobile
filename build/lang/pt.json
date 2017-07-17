@@ -234,6 +234,7 @@
     "mm.courses.allowguests": "Esta disciplina permite o acesso a visitantes",
     "mm.courses.availablecourses": "Disciplinas disponíveis",
     "mm.courses.cannotretrievemorecategories": "Categorias abaixo do nível {{$a}} não podem ser recuperadas.",
+    "mm.courses.catalogue": "Catálogo" ,
     "mm.courses.categories": "Categorias de disciplinas",
     "mm.courses.confirmselfenrol": "Tem certeza de que deseja inscrever-se nesta disciplina?",
     "mm.courses.courses": "Disciplinas",

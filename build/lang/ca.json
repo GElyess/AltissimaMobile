@@ -481,6 +481,7 @@
     "mm.courses.allowguests": "Aquest curs permet entrar als usuaris visitants",
     "mm.courses.availablecourses": "Cursos disponibles",
     "mm.courses.cannotretrievemorecategories": "No es poden recuperar categories més enllà del nivell {{$a}}.",
+    "mm.courses.catalogue": "Catàleg" ,
     "mm.courses.categories": "Categories de cursos",
     "mm.courses.confirmselfenrol": "Segur que voleu autoinscriure-us en aquest curs?",
     "mm.courses.courses": "Cursos",
