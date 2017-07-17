@@ -1,12 +1,11 @@
 <ion-view view-title="catalogue">
     <ion-content mm-state-class>
+	    <script type="text/javascript" src="catalogue.js"></script>
         <div ng-app="mm.core.courses" ng-controller="mmcatalogueCtrl">
 
             <p class="item item-divider" ng-repeat="cat in catalogue_name" onclick="alert('ah');">{{cat}}</p>
 
         </div>
-
-
     </ion-content>
 </ion-view>
 
