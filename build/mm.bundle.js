@@ -14773,16 +14773,16 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     if ($stateParams.catid != 0 && $stateParams.courseid == 0)
     {
         sql = "SELECT id, fullname, FLOOR(idnumber) FROM mdlcourse WHERE category = " + $stateParams.catid;
+        $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
+        {
+            $scope.course = data;
+            alert(data.idnumber);
+
+        }).error(function(data, status)
+        {
+            $scope.course = "error : " + data + ", " + status;
+        });
     }
-    $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
-    {
-        $scope.course = data;
-
-
-    }).error(function(data, status)
-    {
-        $scope.course = "error : " + data + ", " + status;
-    });
 
 
 }]);
