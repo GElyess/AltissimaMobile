@@ -10707,6 +10707,10 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
     .state("site.catalogue",
     {
         url: "/catalogue",
+        params:
+        {
+            id: 0
+        },
         views:
         {
             "site":
@@ -14703,8 +14707,7 @@ angular.module('mm.core.courses')
 
 
 // ici on va faire les requetes sql et definir les variables qui vont etre apellés dans le html
-angular.module("mm.core.courses")
-.controller("mmcatalogueCtrl", ["$scope", "$mmSite", function($scope, $mmSite)
+angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$stateParams", "$mmSite", "$http", function($scope, $stateParams, $mmSite, $http)
 {
     // on initialise les variables pour la requetes sql
     var url = "http://gouv.altissimalearning.com/test_db_simpleA35MM15.php";
@@ -14713,6 +14716,8 @@ angular.module("mm.core.courses")
     var mdp = "@Mtsmst01";
     var table = "altissim_gouvmdl";
     var sql;
+
+    alert($stateParams.id);
 
     // cette requete va permettre de get tout les catalogues
     sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'";
@@ -14762,7 +14767,7 @@ angular.module("mm.core.courses")
                 i++;
             }
 
-            // On stock les ids et les names des catalogues dans le scope qui pourra etre apellé dans le html
+            // On stock les ids et les names des catalogues dans le scope qui pourra etre apellé dans le .html
             $scope.catalogue_id = cat_id;
             $scope.catalogue_name = cat_name;
         }).error(function(data2, status2)

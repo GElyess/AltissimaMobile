@@ -2,7 +2,7 @@
     <ion-content mm-state-class>
         <div ng-app="mm.core.courses" ng-controller="mmcatalogueCtrl">
 
-            <p class="item item-divider" ng-repeat="cat in catalogue_name">{{cat}}</p>
+            <a class="item item-divider" ng-repeat="cat in catalogue" ui-sref="site.catalogue({id: cat.id})">{{cat.name}}</a>
 
         </div>
     </ion-content>
