@@ -14717,10 +14717,10 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     var table = "altissim_gouvmdl";
     var sql;
 
-    alert($stateParams.id);
+//    alert($stateParams.id);
 
     // cette requete va permettre de get tout les catalogues
-    sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'";
+    sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%' AND parent = " $stateParams.id;
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
         $scope.catalogue = data;
