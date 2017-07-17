@@ -14734,7 +14734,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
         {
             // Ici on va check les entitees des users et des catalogues pour n'afficher que les catalogues que le user doit voir (user ça va veut dire utilisateur en francais)
-            i = 0;
+            i = 0; 
             while (i < data.length)
             {
                 var allEntite = data[i].CatalogueEntity.split('\n');
