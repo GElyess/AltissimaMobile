@@ -10704,7 +10704,7 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
 .config(["$stateProvider", function($stateProvider)
 {
     $stateProvider
-    .state("site.testcatalogue",
+    .state("site.catalogue",
     {
         url: "/catalogue",
         views:
