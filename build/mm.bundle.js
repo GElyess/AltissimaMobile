@@ -14776,7 +14776,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
         {
             $scope.course = data;
-            alert(JSON.stringify(data[0]));
 
         }).error(function(data, status)
         {
