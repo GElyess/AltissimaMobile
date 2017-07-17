@@ -10757,18 +10757,6 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
             }
         }
     })
-    .state('site.catalogue', {
-        url: '/catalogue',
-        params: {
-            catalogueid: null
-        },
-        views: {
-            'site': {
-                templateUrl: 'core/components/courses/templates/catalogue.html',
-                controller: 'catalogueCtrl'
-            }
-        }
-    })
     .state('site.mm_availablecourses', {
         url: '/mm_availablecourses',
         views: {
