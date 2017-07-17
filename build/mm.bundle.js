@@ -14718,8 +14718,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     var table = "altissim_gouvmdl";
     var sql;
 
-    alert($stateParams.catid);
-
     // cette requete va permettre de get tout les catalogues
     if ($stateParams.catid == 0)
         sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'";
