@@ -10703,19 +10703,19 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
 })
 .config(["$stateProvider", function($stateProvider) {
     $stateProvider
-    .state("site.Catalogue",
+    .state("site.catalogue",
     {
-        url: "/Catalogue",
+        url: "/catalogue",
         views:
         {
             "site":
             {
-                templateUrl: "core/components/courses/templates/Catalogue.html",
-                controller: "mmCatalogueCtrl"
+                templateUrl: "core/components/courses/templates/catalogue.html",
+                controller: "mmcatalogueCtrl"
             }
         }
     })
-    .state('site.mm_courses', { //sale hmar
+    .state('site.mm_courses', {
         url: '/mm_courses',
         views: {
             'site': {
