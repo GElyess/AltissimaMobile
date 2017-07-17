@@ -10710,7 +10710,7 @@ angular.module('mm.core.courses', ['mm.core.contentlinks'])
         {
             "site":
             {
-                templateUrl: "core/components/courses/templates/testMomoCat.html", 
+                templateUrl: "core/components/courses/templates/Catalogue.html",
                 controller: "mmTestMomoCatCtrl"
             }
         }
@@ -14712,6 +14712,7 @@ angular.module('mm.core.courses')
 }]);
 
 
+
 // ici on va faire les requetes sql et definir les variables qui vont etre apellés dans le html
 angular.module("mm.core.courses")
 .controller("mmTestMomoCatCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
@@ -14727,17 +14728,15 @@ angular.module("mm.core.courses")
 
     // cette requete va permettre de get tout les catalogues
     sql = "SELECT id, name, CatalogueEntity FROM mdlcourse_categories WHERE idnumber LIKE 'cat-%'";
-    $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql)
-    .success(function(data, status)
+    $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
         $scope.catalogue = data;
 
-        // celle ce va permettre de get les entite des user
+        // celle ci va permettre de get les entitees des users
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
-        $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql)
-        .success(function(data2, status2)
+        $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
         {
-            // Ici on va check les entite des users et des catalogues pour n'afficher que les catalogues que le user (user va veut dire utilisateur en anglais ;)) doit voir
+            // Ici on va check les entitees des users et des catalogues pour n'afficher que les catalogues que le user (user ça va veut dire utilisateur en anglais :3) doit voir
             i = 0;
             while (i < data.length)
             {
@@ -14775,7 +14774,7 @@ angular.module("mm.core.courses")
                 i++;
             }
 
-            // On stock l'id et les name des catalogue dans le scope qui pourra etre apellé dans le html
+            // On stock les ids et les names des catalogues dans le scope qui pourra etre apellé dans le html
             $scope.catalogue_id = cat_id;
             $scope.catalogue_name = cat_name;
         }).error(function(data2, status2)

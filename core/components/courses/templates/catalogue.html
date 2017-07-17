@@ -1,36 +1,19 @@
-<ion-view view-title="{{ 'mm.courses.categories' | translate }}">
-    <ion-content mm-state-class>
-        <!-- ion-refresher needs to be direct child of ion-content to work with native scrolling -->
-        <ion-refresher pulling-text="{{ 'mm.core.pulltorefresh' | translate }}" ng-if="categoriesLoaded" on-refresh="refreshCategories()">
-        </ion-refresher>
-        <mm-loading hide-until="categoriesLoaded">
-            <div class="item item-icon-left" ng-if="currentCategory">
-                <i class="icon ion-folder"></i>
-                <h2><mm-format-text watch="true">{{currentCategory.name}}</mm-format-text></h2>
-            </div>
-            <div class="item item-text-wrap item-stack-top" ng-if="currentCategory && currentCategory.description">
-                <mm-format-text watch="true" max-height="60">{{currentCategory.description}}</mm-format-text>
-            </div>
+<ion-view title="catalogue">
+    <ion-content>
+        <div style="margin-top:100px;margin-left:10px" ng-app="mm.core.courses" ng-controller="mmTestMomoCatCtrl">
 
-            <div ng-if="categories.length > 0">
-                <p class="item item-divider">{{ 'mm.courses.categories' | translate }}</p>
-                <section ng-repeat="category in categories">
-                    <a class="item item-icon-left item-text-wrap item-icon-right" ui-sref="site.mm_coursescategories({categoryid: category.id})" title="{{category.name}}">
-                        <i class="icon ion-folder"></i>
-                        <h2><mm-format-text watch="true">{{category.name}}</mm-format-text></h2>
-                        <span ng-if="category.coursecount > 0" class="badge badge-light">{{category.coursecount}}</span>
-                        <i class="icon icon-accessory ion-chevron-right"></i>
-                    </a>
-                </section>
-            </div>
-
-            <div ng-if="courses.length > 0">
-                <p class="item item-divider">{{ 'mm.courses.courses' | translate }}</p>
-                <mm-course-list-item ng-repeat="course in courses" course="course"></mm-course-list-item>
-            </div>
-            <div ng-if="!categories.length && !courses.length" class="item">
-                {{ 'mm.courses.nocoursesyet' | translate }}
-            </div>
-        </mm-loading>
+            <p ng-repeat="cat in catalogue_name">{{cat}}</p>
+            </br>
+            </br>
+            </br>
+            <p>Bonjour.</p>
+            <p>Cet endroit à été repris par le misérable Elyess.</p>
+            <p>J'éspère qu'il va pas tout casser.</p>
+            <p>Elyess est vraiment très con et très moche.</p>
+            </br>
+            </br>
+            <p>J'éspère tu te tapes un merge.</p>
+    
+        </div>
     </ion-content>
 </ion-view>
