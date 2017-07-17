@@ -14715,7 +14715,7 @@ angular.module('mm.core.courses')
 
 // ici on va faire les requetes sql et definir les variables qui vont etre apellés dans le html
 angular.module("mm.core.courses")
-.controller("mmCatalogurCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
+.controller("mmCatalogueCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
     function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
 {
     // on initialise les variables pour la requetes sql
