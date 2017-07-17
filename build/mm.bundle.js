@@ -14704,8 +14704,7 @@ angular.module('mm.core.courses')
 
 // ici on va faire les requetes sql et definir les variables qui vont etre apellés dans le html
 angular.module("mm.core.courses")
-.controller("mmcatalogueCtrl", ["$scope", "$mmCourses", "$mmCoursesDelegate", "$mmUtil", "$mmEvents", "$mmSite", "$q", "mmCoursesEventMyCoursesUpdated", "mmCoursesEventMyCoursesRefreshed", "mmCoreEventSiteUpdated", "$http",
-    function($scope, $mmCourses, $mmCoursesDelegate, $mmUtil, $mmEvents, $mmSite, $q, mmCoursesEventMyCoursesUpdated, mmCoursesEventMyCoursesRefreshed, mmCoreEventSiteUpdated, $http)
+.controller("mmcatalogueCtrl", ["$scope", "$mmSite", function($scope, $mmSite)
 {
     // on initialise les variables pour la requetes sql
     var url = "http://gouv.altissimalearning.com/test_db_simpleA35MM15.php";
@@ -14826,8 +14825,6 @@ angular.module('mm.core.courses')
     {
         $scope.coursesLoaded = true;
     });
-
-    // miaou miaou je suis un chat :3
 
     $scope.refreshCourses = function()
     {
