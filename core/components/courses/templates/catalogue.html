@@ -3,13 +3,15 @@
         <div ng-app="mm.core.courses" ng-controller="mmcatalogueCtrl">
 
             <a class="item item-divider" ng-repeat="cat in catalogue" ui-sref="site.catalogue({catid: cat.id})">
-            <div class="item item-icon-left item-text-wrap item-icon-right">
-            <i class="icon ion-folder"></i>  {{cat.name}}
+            <div class="item item-icon-left item-text-wrap">
+            <i class="icon ion-folder"></i>
+            <h2><mm-format-text watch="true">{{cat.name}}</mm-format-text></h2>
             </div>
             </a>
             <a class="item item-divider" ng-repeat="cou in course" ui-sref="site.mm_course({courseid: cou.idnumber, coursefullname: cou.fullname})">
-            <div class="item item-icon-left item-text-wrap item-icon-right">
-            <i class="icon ion-ionic"></i>  {{cou.fullname}}
+            <div class="item item-icon-left item-text-wrap">
+            <i class="icon ion-ionic"></i>
+            <h2><mm-format-text watch="true">{{cou.fullname}}</mm-format-text></h2>
             </div>
             </a>
 
