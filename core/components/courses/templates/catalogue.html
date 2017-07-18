@@ -2,8 +2,8 @@
     <ion-content mm-state-class>
         <div ng-app="mm.core.courses" ng-controller="mmcatalogueCtrl">
 
-            <a class="item item-divider" ng-repeat="cat in catalogue" ui-sref="site.catalogue({catid: cat.id})">{{cat.name}}</a>
-            <a class="item item-divider" ng-repeat="cou in course" ui-sref="site.mm_course({courseid: cou.idnumber, coursefullname: cou.fullname})">{{cou.fullname}}</a>
+            <a class="item item-divider" ng-repeat="cat in catalogue" ui-sref="site.catalogue({catid: cat.id})"><i class="icon ion-ionic"></i>{{cat.name}}</a>
+            <a class="item item-divider" ng-repeat="cou in course" ui-sref="site.mm_course({courseid: cou.idnumber, coursefullname: cou.fullname})"><i class="icon ion-folder"></i>{{cou.fullname}}</a>
 
         </div>
     </ion-content>
