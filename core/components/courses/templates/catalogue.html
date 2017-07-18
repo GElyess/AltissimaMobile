@@ -1,22 +1,26 @@
 <ion-view view-title="catalogue">
     <ion-content mm-state-class>
         <div ng-app="mm.core.courses" ng-controller="mmcatalogueCtrl">
-        	<p class="item item-divider">{{ 'mm.courses.catalogue' | translate}}</p>
-            <a ng-repeat="cat in catalogue" ui-sref="site.catalogue({catid: cat.id})">
-            <div class="item item-icon-left item-text-wrap item-icon-right">
-            <i class="icon ion-folder"></i>
-            <h2><mm-format-text watch="true">{{cat.name}}</mm-format-text></h2>
-            <i class="icon icon-accessory ion-chevron-right"></i>
+        	<div ng-if="catalogue.length > 0">
+        		<p class="item item-divider">{{ 'mm.courses.catalogue' | translate}}</p>
+            	<a ng-repeat="cat in catalogue" ui-sref="site.catalogue({catid: cat.id})">
+            		<div class="item item-icon-left item-text-wrap item-icon-right">
+            			<i class="icon ion-folder"></i>
+            			<h2><mm-format-text watch="true">{{cat.name}}</mm-format-text></h2>
+            			<i class="icon icon-accessory ion-chevron-right"></i>
+            		</div>
+            	</a>
             </div>
-            </a>
 
-            <p class="item item-divider">{{ 'mm.sidemenu.mycourses' | translate}}</p>
-            <a class="item item-divider" ng-repeat="cou in course" ui-sref="site.mm_course({courseid: cou.idnumber, coursefullname: cou.fullname})">
-            <div class="item item-icon-left">
-            <i class="icon ion-ionic"></i>
-            <h2><mm-format-text watch="true">{{cou.fullname}}</mm-format-text></h2>
+            <div ng-if="mycourses.length > 0">
+            	<p class="item item-divider">{{ 'mm.sidemenu.mycourses' | translate}}</p>
+            	<a ng-repeat="cou in course" ui-sref="site.mm_course({courseid: cou.idnumber, coursefullname: cou.fullname})">
+            		<div class="item item-icon-left">
+            			<i class="icon ion-ionic"></i>
+            			<h2><mm-format-text watch="true">{{cou.fullname}}</mm-format-text></h2>
+            		</div>
+            	</a>
             </div>
-            </a>
 
         </div>
     </ion-content>
