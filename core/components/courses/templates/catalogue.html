@@ -11,9 +11,8 @@
             		</div>
             	</a>
             </div>
-
-            <div ng-if="mycourses.length > 0">
-            	<p class="item item-divider">{{ 'mm.sidemenu.mycourses' | translate}}</p>
+            <div ng-if="course.length > 0">
+            	<p class="item item-divider">{{ 'mm.courses.courses' | translate}}</p>
             	<a ng-repeat="cou in course" ui-sref="site.mm_course({courseid: cou.idnumber, coursefullname: cou.fullname})">
             		<div class="item item-icon-left">
             			<i class="icon ion-ionic"></i>
