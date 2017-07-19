@@ -1,4 +1,4 @@
-<ion-view view-title="catalogue">
+<ion-view view-title="{{'mm.courses.catalogue' | translate}}">
     <ion-content mm-state-class>
         <div ng-app="mm.core.courses" ng-controller="mmcatalogueCtrl">
         	<div ng-if="catalogue.length > 0">
@@ -7,6 +7,7 @@
             		<div class="item item-icon-left item-text-wrap item-icon-right">
             			<i class="icon ion-folder"></i>
             			<h2><mm-format-text watch="true">{{cat.name}}</mm-format-text></h2>
+            			<span ng-if="category.coursecount > 0" class="badge badge-light">{{catalogue.coursecount}}</span>
             			<i class="icon icon-accessory ion-chevron-right"></i>
             		</div>
             	</a>
