@@ -21,7 +21,9 @@
             		</div>
             	</a>
             </div>
-
+			<div ng-if="!course.length && !catalogue.length" class="item">
+                {{ 'mm.courses.nocoursesyet' | translate }}
+            </div>
         </div>
     </ion-content>
 </ion-view>
