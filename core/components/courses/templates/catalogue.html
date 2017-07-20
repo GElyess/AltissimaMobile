@@ -4,8 +4,8 @@
         	<div ng-if="catalogue.length > 0">
         		<p class="item item-divider" style="">{{ 'mm.courses.catalogue' | translate}}</p>
 
-        		<div class="item item-text-wrap item-stack-top" ng-if="currentCategory && currentCategory.description">
-                	<mm-format-text max-height="60">{{currentCategory.description}}</mm-format-text>
+        		<div class="item item-text-wrap" ng-if="currentCategory && currentCategory.description">
+                	<mm-format-text watch="true">{{currentCategory.description}}</mm-format-text>
             	</div>
 
             	<a ng-repeat="cat in catalogue" ui-sref="site.catalogue({catid: cat.id})">
