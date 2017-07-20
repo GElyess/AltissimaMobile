@@ -9,7 +9,10 @@
                 <h2><mm-format-text watch="true">{{currentCategory.name}}</mm-format-text></h2>
             </div>
             <div class="item item-text-wrap item-stack-top" ng-if="currentCategory && currentCategory.description">
-                <mm-format-text  max-height="400">{{currentCategory.description}}</mm-format-text>
+                <mm-format-text watch="true" max-height="420"
+                style="position:relative;height: 175px;overflow: hidden;position: relative;
+                background: #f4f4f4;box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;">
+                {{currentCategory.description}}</mm-format-text>
             </div>
 
             <div ng-if="categories.length > 0">
