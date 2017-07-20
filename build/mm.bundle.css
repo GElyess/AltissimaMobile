@@ -16,78 +16,47 @@
   Modified icons to fit ionicon’s grid from original.
 */
 .course-pano.wrapper {
-
     position:relative;
-
     height: 175px;
-
     overflow: hidden;
-
     position: relative;
-
     background: #f4f4f4;
-
     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
-
 }
 
 .course-pano.title {
-
     height: 135px;
-
     left: 0;
-
     padding: 20px;
-
     top: 0;
-
-  position: absolute;
-
+    position: absolute;
 }
 
 .course-pano.title h2 {
-
   margin-top:20px;
-
   margin-bottom:20px;
-
   color:#fff !important;
-
 }
 
 .course-pano.title h2 > span {
-
-  background: [[setting:maincolor]];
-
+  background: #1fadb9;
   padding:4px 8px;
-
   font-size:0.95em;
-
 }
 
 .course-pano.title h4 {
-
   color:#fff !important;
-
   margin-left:15px;
-
-    /*AJOUT ALTISSIMA */
-    font-weight: normal !important;
-
+  /*AJOUT ALTISSIMA */
+  font-weight: normal !important;
 }
 
 .course-pano.title h4 > span {
-
   background:none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
-
-  border-left:4px solid [[setting:maincolor]];
-
+  border-left:4px solid #1fadb9;
   padding:8px;
-
   display: inline-block;
-
-    font-size: 0.8em;
-
+  font-size: 0.8em;
 }
 
 
