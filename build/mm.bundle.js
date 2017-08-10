@@ -14730,7 +14730,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         var j = 0;
 
 
-        sql = "SELECT id FROM mdlcourse";
+        sql = "SELECT id, category FROM mdlcourse";
         var ret = $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
         {
             j = 0;
@@ -14740,6 +14740,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 i = 0;
                 while (i != data2.length)
                 {
+//                    alert(data[j].id + " " + data2[i].category)
                     if (data[j].id == data2[i].category)
                         data[j].coursecount = intval(data[j].coursecount) + 1;
                     i++;
@@ -14747,7 +14748,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 j++;
             }
             // on stock le data dans le scope qui pourra etre appelé dans le .html
-            alert(JSON.stringify(data[0]));
             $scope.catalogue = data;
         }).error(function(data2, status2)
         {
