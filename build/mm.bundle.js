@@ -14728,8 +14728,23 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     {
         // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
-        alert(JSON.stringify(data[0]));
-        $scope.coursecount = data.length;
+
+        function coursecount(id)
+        {
+            id = intval(id);
+            if ($id > 0)
+            {
+                sql = "SELECT id FROM mdlcourse WHERE category = " + id;
+                $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
+                {
+                    return (data2.length);
+                }).error(function(data2, status2)
+                {
+                    return (0);
+                });
+            }
+            return (0);
+        }
 
         // celle ci va permettre de get les entitees des users
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
