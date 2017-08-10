@@ -14735,8 +14735,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
             sql = "SELECT id FROM mdlcourse WHERE category = " + id;
             $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
             {
-                alert("ah" + i);
-                alert(data2.length);
                 data[i].coursecount = data2.length;
             }).error(function(data2, status2)
             {
@@ -14744,6 +14742,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
             });
             i++;
         }
+        alert(JSON.stringify(data[0]));
         $scope.catalogue = data;
 
 /*        function coursecount(id)
