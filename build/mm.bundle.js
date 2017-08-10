@@ -14740,6 +14740,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 data.coursecount = data2.length;
             }).error(function(data2, status2)
             {
+                alert("ahha" + i);
                 data.coursecount = 0;
             });
             i++;
