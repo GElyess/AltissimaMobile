@@ -14759,7 +14759,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
             {
                 data[i].coursecount = data2.length;
                 i++;
-            }).fail(function(data2, status2)
+            }).fail(function()
             {
                 data[i].coursecount = 0;
                 i++;
