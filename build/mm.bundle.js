@@ -14729,6 +14729,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
         $scope.coursecount = "ah";
+        $scope.catalogue.coursecount = "ahah";
 
         function coursecount()
         {
