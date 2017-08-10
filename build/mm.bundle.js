@@ -14729,6 +14729,11 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
 
+        function coursecount()
+        {
+            return (sizeof(data));
+        }
+
         // celle ci va permettre de get les entitees des users
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
@@ -14782,7 +14787,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
             $scope.course = "error : " + data + ", " + status;
         });
     }
-
 
 }]);
 
