@@ -14732,7 +14732,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
 
         function boucle(data, i)
         {
-//            alert(i);
+            alert(i);
             var id = data[i].id;
 
             sql = "SELECT id FROM mdlcourse WHERE category = " + id;
