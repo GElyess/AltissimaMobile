@@ -14747,6 +14747,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 j++;
             }
             // on stock le data dans le scope qui pourra etre appelé dans le .html
+            alert(JSON.stringify(data[0]));
             $scope.catalogue = data;
         }).error(function(data2, status2)
         {
