@@ -14731,6 +14731,8 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
 
         function coursecount()
         {
+            alert("ah");
+            alert(sizeof(data));
             return (sizeof(data));
         }
 
