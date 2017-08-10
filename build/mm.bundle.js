@@ -14726,24 +14726,25 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
 
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
-        // on stock le data dans le scope qui pourra etre appelé dans le .html
         var i = 0;
 
         while (i != data.length)
         {
-            alert(i);
             var id = data[i].id;
+
             sql = "SELECT id FROM mdlcourse WHERE category = " + id;
             $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
             {
                 data[i].coursecount = data2.length;
+                i++;
             }).error(function(data2, status2)
             {
                 data[i].coursecount = 0;
+                i++;
             });
-            i++;
         }
 //        alert(JSON.stringify(data[0]));
+        // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
 
 /*        function coursecount(id)
