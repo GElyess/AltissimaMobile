@@ -14730,8 +14730,8 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         $scope.catalogue = data;
         alert("ah")
         alert(data);
-        alert(sizeof(data));
-        $scope.coursecount = sizeof(data);
+        alert(data.length);
+        $scope.coursecount = data.length;
 
         // celle ci va permettre de get les entitees des users
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
