@@ -14727,7 +14727,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
         // on stock le data dans le scope qui pourra etre appelé dans le .html
-//        $scope.catalogue = data;
+        $scope.catalogue = data;
         $scope.coursecount = "ah";
         $scope.catalogue.coursecount = "ahah";
 
