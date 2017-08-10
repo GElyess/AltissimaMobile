@@ -14727,9 +14727,25 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
         // on stock le data dans le scope qui pourra etre appelé dans le .html
+        var i = 0;
+
+        while (i != data.length)
+        {
+            var id = data.id;
+            sql = "SELECT id FROM mdlcourse WHERE category = " + id;
+            $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
+            {
+                alert(data2.length);
+                data.coursecount = data2.length;
+            }).error(function(data2, status2)
+            {
+                data.coursecount = 0;
+            });
+            i++;
+        }
         $scope.catalogue = data;
 
-        function coursecount(id)
+/*        function coursecount(id)
         {
             alert("ah");
             id = intval(id);
@@ -14746,7 +14762,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 });
             }
             return (0);
-        }
+        }*/
 
         // celle ci va permettre de get les entitees des users
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
