@@ -14746,6 +14746,8 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 }
                 j++;
             }
+            // on stock le data dans le scope qui pourra etre appelé dans le .html
+            $scope.catalogue = data;
         }).error(function(data2, status2)
         {
         });
@@ -14764,8 +14766,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
             });
         }*/
 
-        // on stock le data dans le scope qui pourra etre appelé dans le .html
-        $scope.catalogue = data;
 
         // celle ci va permettre de get les entitees des users
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
