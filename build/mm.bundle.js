@@ -14728,7 +14728,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     {
         // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
-        alert(data[0]);
+        alert(JSON.stringify(data[0]));
         $scope.coursecount = data.length;
 
         // celle ci va permettre de get les entitees des users
