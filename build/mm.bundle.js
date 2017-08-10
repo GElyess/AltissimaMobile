@@ -14727,7 +14727,30 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
         var i = 0;
-        var j = -1;
+
+        data = boucle(data, 0);
+
+        function boucle(data, i)
+        {
+            var id = data[i].id;
+
+            sql = "SELECT id FROM mdlcourse WHERE category = " + id;
+            $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
+            {
+                data[i].coursecount = data2.length;
+                if (++i == data.length)
+                    return (data);
+                else
+                    return (boucle(data, i));
+            }).error(function(data2, status2)
+            {
+                data[i].coursecount = 0;
+                if (++i == data.length)
+                    return (data);
+                else
+                    return (boucle(data, i));
+            });
+        }
 
         while (i != data.length)
         {
