@@ -14732,6 +14732,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
 
         function boucle(data, i)
         {
+//            alert(i);
             var id = data[i].id;
 
             sql = "SELECT id FROM mdlcourse WHERE category = " + id;
@@ -14752,7 +14753,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
             });
         }
 
-        while (i != data.length)
+/*        while (i != data.length)
         {
             var id = data[i].id;
 
@@ -14770,7 +14771,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                     i++;
                 });
             }
-        }
+        }*/
 //        alert(JSON.stringify(data[0]));
         // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
