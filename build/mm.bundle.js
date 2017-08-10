@@ -14728,11 +14728,8 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     {
         // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
-        alert("ah");
         $scope.coursecount = "ah";
-        alert("ah");
         $scope.catalogue.coursecount = "ahah";
-        alert("ah");
 
         function coursecount()
         {
@@ -14740,7 +14737,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
             alert(sizeof(data));
             return (sizeof(data));
         }
-        alert("ah");
 
         // celle ci va permettre de get les entitees des users
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
