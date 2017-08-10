@@ -14727,72 +14727,45 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
         var i = 0;
-/*        function boucle(data, i)
+        var j = 0;
+
+
+        sql = "SELECT id FROM mdlcourse";
+        var ret = $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
         {
-            alert(i);
+            j = 0;
+            data[j].coursecount = 0;
+            while (j != data.length)
+            {
+                i = 0;
+                while (i != data2.length)
+                {
+                    if (data[j].id == data2[i].category)
+                        data[j].coursecount = intval(data[j].coursecount) + 1;
+                    i++;
+                }
+                j++;
+            }
+        }).error(function(data2, status2)
+        {
+        });
+
+/*        while (i != data.length)
+        {
             var id = data[i].id;
 
             sql = "SELECT id FROM mdlcourse WHERE category = " + id;
-            $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
+            var ret = $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
             {
                 data[i].coursecount = data2.length;
-                if (++i == data.length)
-                    return (data);
-                else
-                    return (boucle(data, i));
             }).error(function(data2, status2)
             {
                 data[i].coursecount = 0;
-                if (++i == data.length)
-                    return (data);
-                else
-                    return (boucle(data, i));
             });
         }*/
 
-        while (i != data.length)
-        {
-            var id = data[i].id;
-
-            sql = "SELECT id FROM mdlcourse WHERE category = " + id;
-            $.when($http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql)).done(function(data2)
-            {
-                data[i].coursecount = data2.length;
-                i++;
-            }).fail(function()
-            {
-                data[i].coursecount = 0;
-                i++;
-            });
-
-/*            $.when(ret).done(function()
-            {
-                i++;
-            });*/
-                alert(i);
-        }
-//        alert(JSON.stringify(data[0]));
         // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
-
-/*        function coursecount(id)
-        {
-            alert("ah");
-            id = intval(id);
-            if ($id > 0)
-            {
-                sql = "SELECT id FROM mdlcourse WHERE category = " + id;
-                $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
-                {
-                    alert(data2.length);
-                    return (data2.length);
-                }).error(function(data2, status2)
-                {
-                    return (0);
-                });
-            }
-            return (0);
-        }*/
 
         // celle ci va permettre de get les entitees des users
         sql = "SELECT data FROM mdluser_info_data WHERE userid = " + $mmSite.getUserId();
