@@ -14727,10 +14727,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
         var i = 0;
-
-        data = boucle(data, 0);
-
-        function boucle(data, i)
+/*        function boucle(data, i)
         {
             alert(i);
             var id = data[i].id;
@@ -14751,27 +14748,26 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 else
                     return (boucle(data, i));
             });
-        }
+        }*/
 
-/*        while (i != data.length)
+        while (i != data.length)
         {
             var id = data[i].id;
 
-            if (j != i)
+            sql = "SELECT id FROM mdlcourse WHERE category = " + id;
+            var ret = $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
             {
-                j = i;
-                sql = "SELECT id FROM mdlcourse WHERE category = " + id;
-                $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
-                {
-                    data[i].coursecount = data2.length;
-                    i++;
-                }).error(function(data2, status2)
-                {
-                    data[i].coursecount = 0;
-                    i++;
-                });
-            }
-        }*/
+                data[i].coursecount = data2.length;
+            }).error(function(data2, status2)
+            {
+                data[i].coursecount = 0;
+            });
+
+            $.when(ret).done(function()
+            {
+                i++;
+            });
+        }
 //        alert(JSON.stringify(data[0]));
         // on stock le data dans le scope qui pourra etre appelé dans le .html
         $scope.catalogue = data;
