@@ -14731,11 +14731,11 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
 
         while (i != data.length)
         {
-            alert("ah");
             var id = data.id;
             sql = "SELECT id FROM mdlcourse WHERE category = " + id;
             $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
             {
+                alert("ah" + i);
                 alert(data2.length);
                 data.coursecount = data2.length;
             }).error(function(data2, status2)
