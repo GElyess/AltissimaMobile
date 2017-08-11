@@ -14729,7 +14729,7 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         var k = 0;
         var l = 0;
 
-
+        // On récupere le nombre de cours qu'il y a dans chaque catalogue
         sql = "SELECT id, category FROM mdlcourse";
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
         {
@@ -14740,7 +14740,6 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 l = 0;
                 while (l != data2.length)
                 {
-//                    alert(data[j].id + " " + data2[i].category);
                     if (data[k].id == data2[l].category)
                     {
                         data[k].coursecount = data[k].coursecount + 1;
@@ -14750,25 +14749,10 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 k++;
             }
             // on stock le data dans le scope qui pourra etre appelé dans le .html
-            alert(JSON.stringify(data[0]));
             $scope.catalogue = data;
         }).error(function(data2, status2)
         {
         });
-
-/*        while (i != data.length)
-        {
-            var id = data[i].id;
-
-            sql = "SELECT id FROM mdlcourse WHERE category = " + id;
-            var ret = $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
-            {
-                data[i].coursecount = data2.length;
-            }).error(function(data2, status2)
-            {
-                data[i].coursecount = 0;
-            });
-        }*/
 
 
         // celle ci va permettre de get les entitees des users
