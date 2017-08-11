@@ -14740,13 +14740,16 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
                 i = 0;
                 while (i != data2.length)
                 {
-                    alert(data[j].id + " " + data2[i].category);
+//                    alert(data[j].id + " " + data2[i].category);
                     if (data[j].id == data2[i].category)
                     {
                         alert("ah");
                         data[j].coursecount = intval(data[j].coursecount) + 1;
+                        alert("ah2");
                     }
+                    alert("ah3");
                     i++;
+                    alert("ah4");
                 }
                 j++;
             }
