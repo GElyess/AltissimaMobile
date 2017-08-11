@@ -14734,9 +14734,9 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
         {
             k = 0;
-            data[k].coursecount = 0;
             while (k != data.length)
             {
+                data[k].coursecount = 0;
                 l = 0;
                 while (l != data2.length)
                 {
