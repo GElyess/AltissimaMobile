@@ -14743,15 +14743,14 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
 //                    alert(data[j].id + " " + data2[i].category);
                     if (data[k].id == data2[l].category)
                     {
-                        alert("ah");
                         data[k].coursecount = data[k].coursecount + 1;
-                        alert("ah2");
                     }
                     l++;
                 }
                 k++;
             }
             // on stock le data dans le scope qui pourra etre appelé dans le .html
+            alert(JSON.stringify(data[0]));
             $scope.catalogue = data;
         }).error(function(data2, status2)
         {
