@@ -14726,30 +14726,30 @@ angular.module("mm.core.courses").controller("mmcatalogueCtrl", ["$scope", "$sta
 
     $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data, status)
     {
-        var i = 0;
-        var j = 0;
+        var k = 0;
+        var l = 0;
 
 
         sql = "SELECT id, category FROM mdlcourse";
         $http.get(url + "?ip=" + ip + "&login=" + login + "&mdp=" + mdp + "&table=" + table + "&sql=" + sql).success(function(data2, status2)
         {
-            j = 0;
-            data[j].coursecount = 0;
-            while (j != data.length)
+            k = 0;
+            data[k].coursecount = 0;
+            while (k != data.length)
             {
-                i = 0;
-                while (i != data2.length)
+                l = 0;
+                while (l != data2.length)
                 {
 //                    alert(data[j].id + " " + data2[i].category);
-                    if (data[j].id == data2[i].category)
+                    if (data[k].id == data2[l].category)
                     {
                         alert("ah");
-                        data[j].coursecount = data[j].coursecount + 1;
+                        data[k].coursecount = data[k].coursecount + 1;
                         alert("ah2");
                     }
-                    i++;
+                    l++;
                 }
-                j++;
+                k++;
             }
             // on stock le data dans le scope qui pourra etre appelé dans le .html
             $scope.catalogue = data;
